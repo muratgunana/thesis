@@ -54,45 +54,45 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/robotics/thesis
+CMAKE_SOURCE_DIR = /home/muri/thesis
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/robotics/thesis/build
+CMAKE_BINARY_DIR = /home/muri/thesis/build
 
 #=============================================================================
-# Target rules for target CMakeFiles/device_detector.dir
+# Target rules for target CMakeFiles/OpenNI2SkeletonData.dir
 
 # All Build rule for target.
-CMakeFiles/device_detector.dir/all:
-	$(MAKE) -f CMakeFiles/device_detector.dir/build.make CMakeFiles/device_detector.dir/depend
-	$(MAKE) -f CMakeFiles/device_detector.dir/build.make CMakeFiles/device_detector.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robotics/thesis/build/CMakeFiles --progress-num=1,2 "Built target device_detector"
-.PHONY : CMakeFiles/device_detector.dir/all
+CMakeFiles/OpenNI2SkeletonData.dir/all:
+	$(MAKE) -f CMakeFiles/OpenNI2SkeletonData.dir/build.make CMakeFiles/OpenNI2SkeletonData.dir/depend
+	$(MAKE) -f CMakeFiles/OpenNI2SkeletonData.dir/build.make CMakeFiles/OpenNI2SkeletonData.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/muri/thesis/build/CMakeFiles --progress-num=1,2 "Built target OpenNI2SkeletonData"
+.PHONY : CMakeFiles/OpenNI2SkeletonData.dir/all
 
 # Include target in all.
-all: CMakeFiles/device_detector.dir/all
+all: CMakeFiles/OpenNI2SkeletonData.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/device_detector.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotics/thesis/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/device_detector.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotics/thesis/build/CMakeFiles 0
-.PHONY : CMakeFiles/device_detector.dir/rule
+CMakeFiles/OpenNI2SkeletonData.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/muri/thesis/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/OpenNI2SkeletonData.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/muri/thesis/build/CMakeFiles 0
+.PHONY : CMakeFiles/OpenNI2SkeletonData.dir/rule
 
 # Convenience name for target.
-device_detector: CMakeFiles/device_detector.dir/rule
+OpenNI2SkeletonData: CMakeFiles/OpenNI2SkeletonData.dir/rule
 
-.PHONY : device_detector
-
-# clean rule for target.
-CMakeFiles/device_detector.dir/clean:
-	$(MAKE) -f CMakeFiles/device_detector.dir/build.make CMakeFiles/device_detector.dir/clean
-.PHONY : CMakeFiles/device_detector.dir/clean
+.PHONY : OpenNI2SkeletonData
 
 # clean rule for target.
-clean: CMakeFiles/device_detector.dir/clean
+CMakeFiles/OpenNI2SkeletonData.dir/clean:
+	$(MAKE) -f CMakeFiles/OpenNI2SkeletonData.dir/build.make CMakeFiles/OpenNI2SkeletonData.dir/clean
+.PHONY : CMakeFiles/OpenNI2SkeletonData.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/OpenNI2SkeletonData.dir/clean
 
 .PHONY : clean
 

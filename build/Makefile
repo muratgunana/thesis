@@ -48,24 +48,13 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/robotics/thesis
+CMAKE_SOURCE_DIR = /home/muri/thesis
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/robotics/thesis/build
+CMAKE_BINARY_DIR = /home/muri/thesis/build
 
 #=============================================================================
 # Targets provided globally by CMake.
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -78,11 +67,22 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotics/thesis/build/CMakeFiles /home/robotics/thesis/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/muri/thesis/build/CMakeFiles /home/muri/thesis/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotics/thesis/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/muri/thesis/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,44 +111,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named device_detector
+# Target rules for targets named OpenNI2SkeletonData
 
 # Build rule for target.
-device_detector: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 device_detector
-.PHONY : device_detector
+OpenNI2SkeletonData: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 OpenNI2SkeletonData
+.PHONY : OpenNI2SkeletonData
 
 # fast build rule for target.
-device_detector/fast:
-	$(MAKE) -f CMakeFiles/device_detector.dir/build.make CMakeFiles/device_detector.dir/build
-.PHONY : device_detector/fast
+OpenNI2SkeletonData/fast:
+	$(MAKE) -f CMakeFiles/OpenNI2SkeletonData.dir/build.make CMakeFiles/OpenNI2SkeletonData.dir/build
+.PHONY : OpenNI2SkeletonData/fast
 
-device_detector.o: device_detector.cpp.o
+OpenNI2SkeletonData.o: OpenNI2SkeletonData.cpp.o
 
-.PHONY : device_detector.o
+.PHONY : OpenNI2SkeletonData.o
 
 # target to build an object file
-device_detector.cpp.o:
-	$(MAKE) -f CMakeFiles/device_detector.dir/build.make CMakeFiles/device_detector.dir/device_detector.cpp.o
-.PHONY : device_detector.cpp.o
+OpenNI2SkeletonData.cpp.o:
+	$(MAKE) -f CMakeFiles/OpenNI2SkeletonData.dir/build.make CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o
+.PHONY : OpenNI2SkeletonData.cpp.o
 
-device_detector.i: device_detector.cpp.i
+OpenNI2SkeletonData.i: OpenNI2SkeletonData.cpp.i
 
-.PHONY : device_detector.i
+.PHONY : OpenNI2SkeletonData.i
 
 # target to preprocess a source file
-device_detector.cpp.i:
-	$(MAKE) -f CMakeFiles/device_detector.dir/build.make CMakeFiles/device_detector.dir/device_detector.cpp.i
-.PHONY : device_detector.cpp.i
+OpenNI2SkeletonData.cpp.i:
+	$(MAKE) -f CMakeFiles/OpenNI2SkeletonData.dir/build.make CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.i
+.PHONY : OpenNI2SkeletonData.cpp.i
 
-device_detector.s: device_detector.cpp.s
+OpenNI2SkeletonData.s: OpenNI2SkeletonData.cpp.s
 
-.PHONY : device_detector.s
+.PHONY : OpenNI2SkeletonData.s
 
 # target to generate assembly for a file
-device_detector.cpp.s:
-	$(MAKE) -f CMakeFiles/device_detector.dir/build.make CMakeFiles/device_detector.dir/device_detector.cpp.s
-.PHONY : device_detector.cpp.s
+OpenNI2SkeletonData.cpp.s:
+	$(MAKE) -f CMakeFiles/OpenNI2SkeletonData.dir/build.make CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.s
+.PHONY : OpenNI2SkeletonData.cpp.s
 
 # Help Target
 help:
@@ -156,12 +156,12 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... device_detector"
-	@echo "... device_detector.o"
-	@echo "... device_detector.i"
-	@echo "... device_detector.s"
+	@echo "... rebuild_cache"
+	@echo "... OpenNI2SkeletonData"
+	@echo "... OpenNI2SkeletonData.o"
+	@echo "... OpenNI2SkeletonData.i"
+	@echo "... OpenNI2SkeletonData.s"
 .PHONY : help
 
 

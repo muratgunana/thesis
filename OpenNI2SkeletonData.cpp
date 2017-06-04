@@ -5,8 +5,24 @@
   * CopyPolicy: Released under the terms of the LGPLv2.1 or later, see LGPL.TXT
   */
  
- #include "OpenNI2SkeletonData.h"
+ #include <yarp/os/Network.h>
+ #include <yarp/os/Vocab.h>
+ #include <yarp/math/Math.h>
+ #include <yarp/sig/Image.h>
+ #include <string>
+ #include <iostream>
  
+ #include <yarp/os/all.h>
+ #include <yarp/sig/all.h>
+ #include <yarp/dev/all.h>
+
+ using namespace std;
+ using namespace yarp::os;
+ using namespace yarp::sig; 
+ using namespace yarp::dev;
+ 
+ #include "OpenNI2SkeletonData.h"
+ #include <yarp/dev/PolyDriver.h>
  OpenNI2SkeletonData::OpenNI2SkeletonData()
  {
      initUserSkeletons();
@@ -113,3 +129,22 @@
  ImageOf<PixelRgb> OpenNI2SkeletonData::getImageFrame(){
      return imageFrame;
  }
+int main(int argc, char* argv[]) {
+  Property p("(device OpenNI2DeviceServer) (noRGB on)");//device started with no RGB option.
+  PolyDriver dev;
+  dev.open(p);
+  if (dev.isValid()) { /* use the device via view method */ }
+  //PolyDriver dd("OpenNI2DeviceServer");
+  //Property config("(device OpenNI2DeviceServer) (noRGB on)");
+  //PolyDriver dev;
+  //dev.open(config);
+  if (!dev.isValid()) {
+    printf("Dragonfly not available\n");
+  }
+  // Open the network
+  OpenNI2SkeletonData data;
+  //data = new OpenNI2SkeletonData();
+  ImageOf<PixelMono16>  image;
+  image = data.getDepthFrame();
+  return 0;
+}

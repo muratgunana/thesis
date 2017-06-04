@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/robotics/thesis/OpenNI2SkeletonData.cpp" "/home/robotics/thesis/build/CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o"
+  "/home/muri/thesis/OpenNI2SkeletonData.cpp" "/home/muri/thesis/build/CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

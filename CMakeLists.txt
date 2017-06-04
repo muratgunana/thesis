@@ -10,6 +10,6 @@ find_package(OpenCV REQUIRED)
 include_directories(${OPENCV_INCLUDE_DIRS})
 include_directories(${YARP_INCLUDE_DIRS})
 # set up our program
-add_executable(device_detector device_detector.cpp)
+add_executable(OpenNI2SkeletonData OpenNI2SkeletonData.cpp)
 # link with YARP libraries
-target_link_libraries(device_detector ${YARP_LIBRARIES} ${OpenCV_LIBS})
+target_link_libraries(OpenNI2SkeletonData ${YARP_LIBRARIES} ${OpenCV_LIBS})

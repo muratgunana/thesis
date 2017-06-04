@@ -14,6 +14,7 @@ int main(int argc, char *argv[]) {
     while (true) {
         cout << "waiting for input" << endl;
         Bottle *input = port.read();
+	cout << "Test output: " << input->toString().c_str() << endl;
         if (input!=NULL) {
             cout << "got " << input->toString().c_str() << endl;
             double total = 0;
