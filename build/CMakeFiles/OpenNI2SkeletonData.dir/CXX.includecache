@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/muri/thesis/OpenNI2SkeletonData.cpp
+/home/robotics/thesis/OpenNI2SkeletonData.cpp
 yarp/os/Network.h
 -
 yarp/os/Vocab.h
@@ -26,11 +26,11 @@ yarp/sig/all.h
 yarp/dev/all.h
 -
 OpenNI2SkeletonData.h
-/home/muri/thesis/OpenNI2SkeletonData.h
+/home/robotics/thesis/OpenNI2SkeletonData.h
 yarp/dev/PolyDriver.h
 -
 
-/home/muri/thesis/OpenNI2SkeletonData.h
+/home/robotics/thesis/OpenNI2SkeletonData.h
 yarp/os/Network.h
 -
 yarp/os/Vocab.h
@@ -44,7 +44,7 @@ string
 iostream
 -
 NiTE.h
-/home/muri/thesis/NiTE.h
+/home/robotics/thesis/NiTE.h
 yarp/dev/IOpenNI2DeviceDriver.h
 -
 

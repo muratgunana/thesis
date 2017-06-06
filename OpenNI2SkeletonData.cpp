@@ -130,21 +130,31 @@
      return imageFrame;
  }
 int main(int argc, char* argv[]) {
-  Property p("(device OpenNI2DeviceServer) (noRGB on)");//device started with no RGB option.
-  PolyDriver dev;
-  dev.open(p);
-  if (dev.isValid()) { /* use the device via view method */ }
+  //Property p("(device OpenNI2DeviceServer) (noRGB off)");//device started with no RGB option.
+  //PolyDriver dev;
+  //dev.open(p);
+  //if (dev.isValid()) { /* use the device via view method */ }
   //PolyDriver dd("OpenNI2DeviceServer");
   //Property config("(device OpenNI2DeviceServer) (noRGB on)");
   //PolyDriver dev;
   //dev.open(config);
-  if (!dev.isValid()) {
-    printf("Dragonfly not available\n");
-  }
-  // Open the network
-  OpenNI2SkeletonData data;
-  //data = new OpenNI2SkeletonData();
-  ImageOf<PixelMono16>  image;
-  image = data.getDepthFrame();
-  return 0;
+  //if (!dev.isValid()) {
+   // printf("Dragonfly not available\n");
+  //}
+  
+    Network yarp;
+    BufferedPort<Bottle> input;
+    input.open("/receiver");
+    // usually, we create connections externally, but just for this example...
+    Network::connect("/OpenNI2/userSkeleton:o","/receiver");
+    //OpenNI2SkeletonData data;
+    while(true) {
+    Bottle *vec = input.read();
+    printf("Position: %sa\n", vec->toString().c_str());
+    //input.read(bot);
+    //printf("Got message: %s\n", bot.toString().c_str());
+    }
+    input.close();
+    return 0;
+
 }
