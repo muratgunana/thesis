@@ -20,6 +20,7 @@ CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o
  /usr/local/include/yarp/os/Mutex.h
  /usr/local/include/yarp/os/NameStore.h
  /usr/local/include/yarp/os/NestedContact.h
+ /usr/local/include/yarp/os/NetInt32.h
  /usr/local/include/yarp/os/Network.h
  /usr/local/include/yarp/os/Port.h
  /usr/local/include/yarp/os/PortReader.h
@@ -36,4 +37,5 @@ CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o
  /usr/local/include/yarp/os/Type.h
  /usr/local/include/yarp/os/UnbufferedContactable.h
  /usr/local/include/yarp/os/Value.h
+ /usr/local/include/yarp/os/Vocab.h
  /usr/local/include/yarp/os/api.h

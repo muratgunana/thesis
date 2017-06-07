@@ -15,6 +15,8 @@ yarp/os/Bottle.h
 -
 stdio.h
 -
+yarp/os/Vocab.h
+-
 
 /usr/local/include/yarp/conf/api.h
 yarp/conf/compiler.h
@@ -136,6 +138,12 @@ yarp/os/Bottle.h
 
 /usr/local/include/yarp/os/NestedContact.h
 yarp/os/ConstString.h
+-
+
+/usr/local/include/yarp/os/NetInt32.h
+yarp/conf/numeric.h
+-
+yarp/os/api.h
 -
 
 /usr/local/include/yarp/os/Network.h
@@ -260,6 +268,12 @@ yarp/os/Portable.h
 yarp/os/Bottle.h
 -
 stddef.h
+-
+
+/usr/local/include/yarp/os/Vocab.h
+yarp/os/NetInt32.h
+-
+yarp/os/ConstString.h
 -
 
 /usr/local/include/yarp/os/api.h

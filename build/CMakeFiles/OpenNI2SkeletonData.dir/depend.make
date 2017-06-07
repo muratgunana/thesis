@@ -19,6 +19,7 @@ CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/Mutex.h
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/NameStore.h
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/NestedContact.h
+CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/NetInt32.h
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/Network.h
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/Port.h
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/PortReader.h
@@ -35,5 +36,6 @@ CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/Type.h
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/UnbufferedContactable.h
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/Value.h
+CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/Vocab.h
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/api.h
 
