@@ -1,4 +1,5 @@
-/home/muri/thesis/build/CMakeFiles/edit_cache.dir
-/home/muri/thesis/build/CMakeFiles/rebuild_cache.dir
-/home/muri/thesis/build/CMakeFiles/ObjectDetection.dir
 /home/muri/thesis/build/CMakeFiles/OpenNI2SkeletonData.dir
+/home/muri/thesis/build/CMakeFiles/ObjectDetection.dir
+/home/muri/thesis/build/CMakeFiles/edit_cache.dir
+/home/muri/thesis/build/CMakeFiles/FindLocation.dir
+/home/muri/thesis/build/CMakeFiles/rebuild_cache.dir

@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named OpenNI2SkeletonData
+
+# Build rule for target.
+OpenNI2SkeletonData: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 OpenNI2SkeletonData
+.PHONY : OpenNI2SkeletonData
+
+# fast build rule for target.
+OpenNI2SkeletonData/fast:
+	$(MAKE) -f CMakeFiles/OpenNI2SkeletonData.dir/build.make CMakeFiles/OpenNI2SkeletonData.dir/build
+.PHONY : OpenNI2SkeletonData/fast
+
+#=============================================================================
 # Target rules for targets named ObjectDetection
 
 # Build rule for target.
@@ -124,17 +137,44 @@ ObjectDetection/fast:
 .PHONY : ObjectDetection/fast
 
 #=============================================================================
-# Target rules for targets named OpenNI2SkeletonData
+# Target rules for targets named FindLocation
 
 # Build rule for target.
-OpenNI2SkeletonData: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 OpenNI2SkeletonData
-.PHONY : OpenNI2SkeletonData
+FindLocation: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 FindLocation
+.PHONY : FindLocation
 
 # fast build rule for target.
-OpenNI2SkeletonData/fast:
-	$(MAKE) -f CMakeFiles/OpenNI2SkeletonData.dir/build.make CMakeFiles/OpenNI2SkeletonData.dir/build
-.PHONY : OpenNI2SkeletonData/fast
+FindLocation/fast:
+	$(MAKE) -f CMakeFiles/FindLocation.dir/build.make CMakeFiles/FindLocation.dir/build
+.PHONY : FindLocation/fast
+
+FindLocation.o: FindLocation.cpp.o
+
+.PHONY : FindLocation.o
+
+# target to build an object file
+FindLocation.cpp.o:
+	$(MAKE) -f CMakeFiles/FindLocation.dir/build.make CMakeFiles/FindLocation.dir/FindLocation.cpp.o
+.PHONY : FindLocation.cpp.o
+
+FindLocation.i: FindLocation.cpp.i
+
+.PHONY : FindLocation.i
+
+# target to preprocess a source file
+FindLocation.cpp.i:
+	$(MAKE) -f CMakeFiles/FindLocation.dir/build.make CMakeFiles/FindLocation.dir/FindLocation.cpp.i
+.PHONY : FindLocation.cpp.i
+
+FindLocation.s: FindLocation.cpp.s
+
+.PHONY : FindLocation.s
+
+# target to generate assembly for a file
+FindLocation.cpp.s:
+	$(MAKE) -f CMakeFiles/FindLocation.dir/build.make CMakeFiles/FindLocation.dir/FindLocation.cpp.s
+.PHONY : FindLocation.cpp.s
 
 ObjectDetection.o: ObjectDetection.cpp.o
 
@@ -196,10 +236,14 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
-	@echo "... rebuild_cache"
-	@echo "... ObjectDetection"
 	@echo "... OpenNI2SkeletonData"
+	@echo "... ObjectDetection"
+	@echo "... edit_cache"
+	@echo "... FindLocation"
+	@echo "... rebuild_cache"
+	@echo "... FindLocation.o"
+	@echo "... FindLocation.i"
+	@echo "... FindLocation.s"
 	@echo "... ObjectDetection.o"
 	@echo "... ObjectDetection.i"
 	@echo "... ObjectDetection.s"
