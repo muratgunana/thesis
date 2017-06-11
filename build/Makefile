@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/robotics/thesis
+CMAKE_SOURCE_DIR = /home/muri/thesis
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/robotics/thesis/build
+CMAKE_BINARY_DIR = /home/muri/thesis/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotics/thesis/build/CMakeFiles /home/robotics/thesis/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/muri/thesis/build/CMakeFiles /home/muri/thesis/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotics/thesis/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/muri/thesis/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named ObjectDetection
+
+# Build rule for target.
+ObjectDetection: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ObjectDetection
+.PHONY : ObjectDetection
+
+# fast build rule for target.
+ObjectDetection/fast:
+	$(MAKE) -f CMakeFiles/ObjectDetection.dir/build.make CMakeFiles/ObjectDetection.dir/build
+.PHONY : ObjectDetection/fast
+
+#=============================================================================
 # Target rules for targets named OpenNI2SkeletonData
 
 # Build rule for target.
@@ -122,6 +135,33 @@ OpenNI2SkeletonData: cmake_check_build_system
 OpenNI2SkeletonData/fast:
 	$(MAKE) -f CMakeFiles/OpenNI2SkeletonData.dir/build.make CMakeFiles/OpenNI2SkeletonData.dir/build
 .PHONY : OpenNI2SkeletonData/fast
+
+ObjectDetection.o: ObjectDetection.cpp.o
+
+.PHONY : ObjectDetection.o
+
+# target to build an object file
+ObjectDetection.cpp.o:
+	$(MAKE) -f CMakeFiles/ObjectDetection.dir/build.make CMakeFiles/ObjectDetection.dir/ObjectDetection.cpp.o
+.PHONY : ObjectDetection.cpp.o
+
+ObjectDetection.i: ObjectDetection.cpp.i
+
+.PHONY : ObjectDetection.i
+
+# target to preprocess a source file
+ObjectDetection.cpp.i:
+	$(MAKE) -f CMakeFiles/ObjectDetection.dir/build.make CMakeFiles/ObjectDetection.dir/ObjectDetection.cpp.i
+.PHONY : ObjectDetection.cpp.i
+
+ObjectDetection.s: ObjectDetection.cpp.s
+
+.PHONY : ObjectDetection.s
+
+# target to generate assembly for a file
+ObjectDetection.cpp.s:
+	$(MAKE) -f CMakeFiles/ObjectDetection.dir/build.make CMakeFiles/ObjectDetection.dir/ObjectDetection.cpp.s
+.PHONY : ObjectDetection.cpp.s
 
 OpenNI2SkeletonData.o: OpenNI2SkeletonData.cpp.o
 
@@ -158,7 +198,11 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... ObjectDetection"
 	@echo "... OpenNI2SkeletonData"
+	@echo "... ObjectDetection.o"
+	@echo "... ObjectDetection.i"
+	@echo "... ObjectDetection.s"
 	@echo "... OpenNI2SkeletonData.o"
 	@echo "... OpenNI2SkeletonData.i"
 	@echo "... OpenNI2SkeletonData.s"

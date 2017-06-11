@@ -51,5 +51,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/ObjectDetection.dir/DependInfo.cmake"
   "CMakeFiles/OpenNI2SkeletonData.dir/DependInfo.cmake"
   )
