@@ -48,24 +48,13 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/muri/thesis
+CMAKE_SOURCE_DIR = /home/robotics/thesis
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/muri/thesis/build
+CMAKE_BINARY_DIR = /home/robotics/thesis/build
 
 #=============================================================================
 # Targets provided globally by CMake.
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -78,11 +67,22 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/muri/thesis/build/CMakeFiles /home/muri/thesis/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotics/thesis/build/CMakeFiles /home/robotics/thesis/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/muri/thesis/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotics/thesis/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -109,6 +109,19 @@ preinstall/fast:
 depend:
 	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+#=============================================================================
+# Target rules for targets named OpencvGrabber
+
+# Build rule for target.
+OpencvGrabber: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 OpencvGrabber
+.PHONY : OpencvGrabber
+
+# fast build rule for target.
+OpencvGrabber/fast:
+	$(MAKE) -f CMakeFiles/OpencvGrabber.dir/build.make CMakeFiles/OpencvGrabber.dir/build
+.PHONY : OpencvGrabber/fast
 
 #=============================================================================
 # Target rules for targets named OpenNI2SkeletonData
@@ -149,6 +162,19 @@ FindLocation/fast:
 	$(MAKE) -f CMakeFiles/FindLocation.dir/build.make CMakeFiles/FindLocation.dir/build
 .PHONY : FindLocation/fast
 
+#=============================================================================
+# Target rules for targets named LookAtLocation
+
+# Build rule for target.
+LookAtLocation: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 LookAtLocation
+.PHONY : LookAtLocation
+
+# fast build rule for target.
+LookAtLocation/fast:
+	$(MAKE) -f CMakeFiles/LookAtLocation.dir/build.make CMakeFiles/LookAtLocation.dir/build
+.PHONY : LookAtLocation/fast
+
 FindLocation.o: FindLocation.cpp.o
 
 .PHONY : FindLocation.o
@@ -175,6 +201,33 @@ FindLocation.s: FindLocation.cpp.s
 FindLocation.cpp.s:
 	$(MAKE) -f CMakeFiles/FindLocation.dir/build.make CMakeFiles/FindLocation.dir/FindLocation.cpp.s
 .PHONY : FindLocation.cpp.s
+
+LookAtLocation.o: LookAtLocation.cpp.o
+
+.PHONY : LookAtLocation.o
+
+# target to build an object file
+LookAtLocation.cpp.o:
+	$(MAKE) -f CMakeFiles/LookAtLocation.dir/build.make CMakeFiles/LookAtLocation.dir/LookAtLocation.cpp.o
+.PHONY : LookAtLocation.cpp.o
+
+LookAtLocation.i: LookAtLocation.cpp.i
+
+.PHONY : LookAtLocation.i
+
+# target to preprocess a source file
+LookAtLocation.cpp.i:
+	$(MAKE) -f CMakeFiles/LookAtLocation.dir/build.make CMakeFiles/LookAtLocation.dir/LookAtLocation.cpp.i
+.PHONY : LookAtLocation.cpp.i
+
+LookAtLocation.s: LookAtLocation.cpp.s
+
+.PHONY : LookAtLocation.s
+
+# target to generate assembly for a file
+LookAtLocation.cpp.s:
+	$(MAKE) -f CMakeFiles/LookAtLocation.dir/build.make CMakeFiles/LookAtLocation.dir/LookAtLocation.cpp.s
+.PHONY : LookAtLocation.cpp.s
 
 ObjectDetection.o: ObjectDetection.cpp.o
 
@@ -230,26 +283,61 @@ OpenNI2SkeletonData.cpp.s:
 	$(MAKE) -f CMakeFiles/OpenNI2SkeletonData.dir/build.make CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.s
 .PHONY : OpenNI2SkeletonData.cpp.s
 
+OpencvGrabber.o: OpencvGrabber.cpp.o
+
+.PHONY : OpencvGrabber.o
+
+# target to build an object file
+OpencvGrabber.cpp.o:
+	$(MAKE) -f CMakeFiles/OpencvGrabber.dir/build.make CMakeFiles/OpencvGrabber.dir/OpencvGrabber.cpp.o
+.PHONY : OpencvGrabber.cpp.o
+
+OpencvGrabber.i: OpencvGrabber.cpp.i
+
+.PHONY : OpencvGrabber.i
+
+# target to preprocess a source file
+OpencvGrabber.cpp.i:
+	$(MAKE) -f CMakeFiles/OpencvGrabber.dir/build.make CMakeFiles/OpencvGrabber.dir/OpencvGrabber.cpp.i
+.PHONY : OpencvGrabber.cpp.i
+
+OpencvGrabber.s: OpencvGrabber.cpp.s
+
+.PHONY : OpencvGrabber.s
+
+# target to generate assembly for a file
+OpencvGrabber.cpp.s:
+	$(MAKE) -f CMakeFiles/OpencvGrabber.dir/build.make CMakeFiles/OpencvGrabber.dir/OpencvGrabber.cpp.s
+.PHONY : OpencvGrabber.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... rebuild_cache"
+	@echo "... OpencvGrabber"
 	@echo "... OpenNI2SkeletonData"
 	@echo "... ObjectDetection"
 	@echo "... edit_cache"
 	@echo "... FindLocation"
-	@echo "... rebuild_cache"
+	@echo "... LookAtLocation"
 	@echo "... FindLocation.o"
 	@echo "... FindLocation.i"
 	@echo "... FindLocation.s"
+	@echo "... LookAtLocation.o"
+	@echo "... LookAtLocation.i"
+	@echo "... LookAtLocation.s"
 	@echo "... ObjectDetection.o"
 	@echo "... ObjectDetection.i"
 	@echo "... ObjectDetection.s"
 	@echo "... OpenNI2SkeletonData.o"
 	@echo "... OpenNI2SkeletonData.i"
 	@echo "... OpenNI2SkeletonData.s"
+	@echo "... OpencvGrabber.o"
+	@echo "... OpencvGrabber.i"
+	@echo "... OpencvGrabber.s"
 .PHONY : help
 
 
