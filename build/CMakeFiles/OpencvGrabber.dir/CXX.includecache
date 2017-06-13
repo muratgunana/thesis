@@ -21,6 +21,12 @@ yarp/os/all.h
 -
 yarp/dev/all.h
 -
+opencv2/objdetect/objdetect.hpp
+-
+opencv2/highgui/highgui.hpp
+/home/robotics/thesis/opencv2/highgui/highgui.hpp
+opencv2/imgproc/imgproc.hpp
+/home/robotics/thesis/opencv2/imgproc/imgproc.hpp
 
 /usr/include/opencv/cv.h
 opencv2/core/core_c.h
