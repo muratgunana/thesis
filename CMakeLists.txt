@@ -16,6 +16,7 @@ add_executable(ObjectDetection ObjectDetection.cpp)
 add_executable(FindLocation FindLocation.cpp)
 add_executable(LookAtLocation LookAtLocation.cpp)
 add_executable(OpencvGrabber OpencvGrabber.cpp)
+add_executable(OpencvCamera OpencvCamera.cpp)
 
 # link with YARP libraries
 target_link_libraries(ObjectDetection ${YARP_LIBRARIES} ${OpenCV_LIBS})
@@ -23,3 +24,4 @@ target_link_libraries(OpenNI2SkeletonData ${YARP_LIBRARIES} ${OpenCV_LIBS})
 target_link_libraries(FindLocation ${YARP_LIBRARIES} ${OpenCV_LIBS})
 target_link_libraries(LookAtLocation ${YARP_LIBRARIES} ${OpenCV_LIBS})
 target_link_libraries(OpencvGrabber ${YARP_LIBRARIES} ${OpenCV_LIBS})
+target_link_libraries(OpencvCamera ${YARP_LIBRARIES} ${OpenCV_LIBS})

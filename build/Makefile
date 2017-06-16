@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named OpencvCamera
+
+# Build rule for target.
+OpencvCamera: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 OpencvCamera
+.PHONY : OpencvCamera
+
+# fast build rule for target.
+OpencvCamera/fast:
+	$(MAKE) -f CMakeFiles/OpencvCamera.dir/build.make CMakeFiles/OpencvCamera.dir/build
+.PHONY : OpencvCamera/fast
+
+#=============================================================================
 # Target rules for targets named OpencvGrabber
 
 # Build rule for target.
@@ -283,6 +296,33 @@ OpenNI2SkeletonData.cpp.s:
 	$(MAKE) -f CMakeFiles/OpenNI2SkeletonData.dir/build.make CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.s
 .PHONY : OpenNI2SkeletonData.cpp.s
 
+OpencvCamera.o: OpencvCamera.cpp.o
+
+.PHONY : OpencvCamera.o
+
+# target to build an object file
+OpencvCamera.cpp.o:
+	$(MAKE) -f CMakeFiles/OpencvCamera.dir/build.make CMakeFiles/OpencvCamera.dir/OpencvCamera.cpp.o
+.PHONY : OpencvCamera.cpp.o
+
+OpencvCamera.i: OpencvCamera.cpp.i
+
+.PHONY : OpencvCamera.i
+
+# target to preprocess a source file
+OpencvCamera.cpp.i:
+	$(MAKE) -f CMakeFiles/OpencvCamera.dir/build.make CMakeFiles/OpencvCamera.dir/OpencvCamera.cpp.i
+.PHONY : OpencvCamera.cpp.i
+
+OpencvCamera.s: OpencvCamera.cpp.s
+
+.PHONY : OpencvCamera.s
+
+# target to generate assembly for a file
+OpencvCamera.cpp.s:
+	$(MAKE) -f CMakeFiles/OpencvCamera.dir/build.make CMakeFiles/OpencvCamera.dir/OpencvCamera.cpp.s
+.PHONY : OpencvCamera.cpp.s
+
 OpencvGrabber.o: OpencvGrabber.cpp.o
 
 .PHONY : OpencvGrabber.o
@@ -317,6 +357,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... OpencvCamera"
 	@echo "... OpencvGrabber"
 	@echo "... OpenNI2SkeletonData"
 	@echo "... ObjectDetection"
@@ -335,6 +376,9 @@ help:
 	@echo "... OpenNI2SkeletonData.o"
 	@echo "... OpenNI2SkeletonData.i"
 	@echo "... OpenNI2SkeletonData.s"
+	@echo "... OpencvCamera.o"
+	@echo "... OpencvCamera.i"
+	@echo "... OpencvCamera.s"
 	@echo "... OpencvGrabber.o"
 	@echo "... OpencvGrabber.i"
 	@echo "... OpencvGrabber.s"

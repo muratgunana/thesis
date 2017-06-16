@@ -60,13 +60,50 @@ CMAKE_SOURCE_DIR = /home/robotics/thesis
 CMAKE_BINARY_DIR = /home/robotics/thesis/build
 
 #=============================================================================
+# Target rules for target CMakeFiles/OpencvCamera.dir
+
+# All Build rule for target.
+CMakeFiles/OpencvCamera.dir/all:
+	$(MAKE) -f CMakeFiles/OpencvCamera.dir/build.make CMakeFiles/OpencvCamera.dir/depend
+	$(MAKE) -f CMakeFiles/OpencvCamera.dir/build.make CMakeFiles/OpencvCamera.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robotics/thesis/build/CMakeFiles --progress-num=9,10 "Built target OpencvCamera"
+.PHONY : CMakeFiles/OpencvCamera.dir/all
+
+# Include target in all.
+all: CMakeFiles/OpencvCamera.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/OpencvCamera.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotics/thesis/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/OpencvCamera.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotics/thesis/build/CMakeFiles 0
+.PHONY : CMakeFiles/OpencvCamera.dir/rule
+
+# Convenience name for target.
+OpencvCamera: CMakeFiles/OpencvCamera.dir/rule
+
+.PHONY : OpencvCamera
+
+# clean rule for target.
+CMakeFiles/OpencvCamera.dir/clean:
+	$(MAKE) -f CMakeFiles/OpencvCamera.dir/build.make CMakeFiles/OpencvCamera.dir/clean
+.PHONY : CMakeFiles/OpencvCamera.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/OpencvCamera.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/OpencvGrabber.dir
 
 # All Build rule for target.
 CMakeFiles/OpencvGrabber.dir/all:
 	$(MAKE) -f CMakeFiles/OpencvGrabber.dir/build.make CMakeFiles/OpencvGrabber.dir/depend
 	$(MAKE) -f CMakeFiles/OpencvGrabber.dir/build.make CMakeFiles/OpencvGrabber.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robotics/thesis/build/CMakeFiles --progress-num=9,10 "Built target OpencvGrabber"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robotics/thesis/build/CMakeFiles --progress-num=11,12 "Built target OpencvGrabber"
 .PHONY : CMakeFiles/OpencvGrabber.dir/all
 
 # Include target in all.
