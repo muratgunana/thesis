@@ -5,8 +5,8 @@
 #include <yarp/os/Vocab.h>
 using namespace yarp::os;
 
-void showBottle(Bottle& anUnknownBottle, int indentation = 0) {
-    for (int i=0; i<anUnknownBottle.size(); i++) {
+void showBottle(Bottle& anUnknownBottle, int indentation = 0) { 
+   for (int i=0; i<anUnknownBottle.size(); i++) {
         for (int j=0; j<indentation; j++) { printf(" "); }
         printf("[%d]: ", i);
         Value& element = anUnknownBottle.get(i);
@@ -50,13 +50,13 @@ int main(int argc, char* argv[]) {
       printf("User: %d\n", bot->find("USER").asInt());
     }
     Bottle& pos = bot->findGroup("POS");
-    printf("Pos-whole : %s\n", pos.toString().c_str());
-    printf("Pos-size: %d\n", bot->size());
+    //printf("Pos-whole : %s\n", pos.toString().c_str());
+    //printf("Pos-size: %d\n", bot->size());
     for (int i=1; i < bot->size(); i++) {
       //printf("Pos[%d]: %d\n", i, bot->get(i).asInt());
     }
     showBottle(*bot);
-    printf("Position: %sa\n", bot->toString().c_str());
+    //printf("Position: %sa\n", bot->toString().c_str());
     //input.read(bot);
     //printf("Got message: %s\n", bot.toString().c_str());
   }
