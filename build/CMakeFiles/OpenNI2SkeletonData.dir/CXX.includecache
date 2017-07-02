@@ -6,12 +6,22 @@
 
 #IncludeRegexTransform: 
 
-/home/robotics/thesis/OpenNI2SkeletonData.cpp
+/home/muri/thesis/OpenNI2SkeletonData.cpp
 yarp/os/Network.h
 -
 yarp/os/BufferedPort.h
 -
 yarp/os/Bottle.h
+-
+yarp/sig/Vector.h
+-
+yarp/sig/Matrix.h
+-
+yarp/math/api.h
+-
+yarp/math/Quaternion.h
+-
+yarp/math/Math.h
 -
 stdio.h
 -
@@ -36,6 +46,32 @@ stddef.h
 
 /usr/local/include/yarp/conf/system.h
 yarp/conf/numeric.h
+-
+
+/usr/local/include/yarp/math/Math.h
+yarp/sig/Vector.h
+-
+yarp/sig/Matrix.h
+-
+yarp/math/api.h
+-
+yarp/math/Quaternion.h
+-
+
+/usr/local/include/yarp/math/Quaternion.h
+yarp/math/api.h
+-
+yarp/sig/Vector.h
+-
+yarp/sig/Matrix.h
+-
+yarp/os/Portable.h
+-
+yarp/os/NetInt32.h
+-
+
+/usr/local/include/yarp/math/api.h
+yarp/conf/api.h
 -
 
 /usr/local/include/yarp/os/Bottle.h
@@ -124,6 +160,26 @@ yarp/os/Mutex.h
 
 /usr/local/include/yarp/os/LocalReader.h
 yarp/os/PortReader.h
+-
+
+/usr/local/include/yarp/os/Log.h
+yarp/os/api.h
+-
+iosfwd
+-
+cstdio
+-
+cstdlib
+-
+yarp/os/ConstString.h
+-
+
+/usr/local/include/yarp/os/ManagedBytes.h
+yarp/os/Bytes.h
+-
+yarp/os/Network.h
+-
+yarp/os/Portable.h
 -
 
 /usr/local/include/yarp/os/Mutex.h
@@ -277,6 +333,36 @@ yarp/os/ConstString.h
 -
 
 /usr/local/include/yarp/os/api.h
+yarp/conf/api.h
+-
+
+/usr/local/include/yarp/sig/Matrix.h
+stdlib.h
+-
+memory.h
+-
+yarp/os/Portable.h
+-
+yarp/sig/Vector.h
+-
+yarp/os/ManagedBytes.h
+-
+
+/usr/local/include/yarp/sig/Vector.h
+stddef.h
+-
+yarp/os/Portable.h
+-
+yarp/os/ConstString.h
+-
+yarp/os/ManagedBytes.h
+-
+yarp/sig/api.h
+-
+yarp/os/Log.h
+-
+
+/usr/local/include/yarp/sig/api.h
 yarp/conf/api.h
 -
 

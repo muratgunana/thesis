@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/robotics/thesis/ObjectDetection.cpp
+/home/muri/thesis/ObjectDetection.cpp
 stdio.h
 -
 yarp/os/all.h

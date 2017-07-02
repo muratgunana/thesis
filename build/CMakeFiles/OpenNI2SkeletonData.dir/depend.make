@@ -6,6 +6,9 @@ CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/conf/compiler.h
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/conf/numeric.h
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/conf/system.h
+CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/math/Math.h
+CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/math/Quaternion.h
+CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/math/api.h
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/Bottle.h
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/BufferedPort.h
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/Bytes.h
@@ -16,6 +19,8 @@ CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/ContactStyle.h
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/Contactable.h
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/LocalReader.h
+CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/Log.h
+CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/ManagedBytes.h
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/Mutex.h
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/NameStore.h
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/NestedContact.h
@@ -38,4 +43,7 @@ CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/Value.h
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/Vocab.h
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/api.h
+CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/sig/Matrix.h
+CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/sig/Vector.h
+CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/sig/api.h
 
