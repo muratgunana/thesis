@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/muri/thesis/OpencvGrabber.cpp" "/home/muri/thesis/build/CMakeFiles/OpencvGrabber.dir/OpencvGrabber.cpp.o"
+  "/home/robotics/thesis/OpencvGrabber.cpp" "/home/robotics/thesis/build/CMakeFiles/OpencvGrabber.dir/OpencvGrabber.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

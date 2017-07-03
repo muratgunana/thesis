@@ -51,7 +51,7 @@ Bottle showBottle(Bottle& anUnknownBottle, int indentation = 0) {
         break;
     }
   }
-  printf("Newlist: %s\n", bot.toString().c_str());
+  //printf("Newlist: %s\n", bot.toString().c_str());
   return bot;
 }
  
@@ -60,11 +60,11 @@ int main(int argc, char* argv[]) {
   BufferedPort<Bottle> input;
   input.open("/receiver");
   Network::connect("/OpenNI2/userSkeleton:o","/receiver");
-  Vector right_elbow(3), right_hand(3);
+  Vector elbow_joint(3), wrist_joint(3), hand_vector(3);
   while(true) {
     Bottle *bot = input.read();
     if (!bot->find("USER").isNull()) {
-      printf("User: %d\n", bot->find("USER").asInt());
+      //printf("User: %d\n", bot->find("USER").asInt());
     }
     Bottle& pos = bot->findGroup("POS");
     //printf("Pos-whole : %s\n", pos.toString().c_str());
@@ -76,23 +76,47 @@ int main(int argc, char* argv[]) {
     Bottle bottle;
     // Extract skeleton parts.
     bottle = showBottle(*bot);
-    
-    for (int i = 0; i < bottle.size(); i++) {
-      Value& element_list = bottle.get(i);
-      Bottle *lst = element_list.asList();
-      for (int j = 0; j < lst->size(); j++) {
-        Value& element = lst->get(j);
-        if (i == 0) {
-          right_elbow[j] = element.asDouble();
-        }
-        if (i == 1) {
-          right_hand[j] = element.asDouble();
+    if (!bottle.isNull()) {
+      printf("Elbow-joint and wrist-joint vectors: %s\n", bottle.toString().c_str()); 
+      for (int i = 0; i < bottle.size(); i++) {
+        Value& element_list = bottle.get(i);
+        Bottle *lst = element_list.asList();
+        for (int j = 0; j < lst->size(); j++) {
+          Value& element = lst->get(j);
+          if (i == 0) {
+            elbow_joint[j] = element.asDouble()/10.0;
+          }
+          if (i == 1) {
+            wrist_joint[j] = element.asDouble()/10.0;
+          }
         }
       }
+   
+      // Create the hand vector from elbow and wrist joints.
+      hand_vector = wrist_joint;
+      hand_vector -= elbow_joint;
+      printf("hand vector after: %s\n", hand_vector.toString().c_str());
+      
+      // Now we need to create ball centre point as vector.
+      Vector ball_center(3);
+      ball_center[0] = 34.0;
+      ball_center[1] = 0.5; 
+      ball_center[2] = 40.0;
+      // Create another vector from elbow joint to ball center.
+      // This is needed to get dot product of hand_vector.
+      Vector elbow_ball_vector(3);
+      elbow_ball_vector = elbow_joint;
+      elbow_ball_vector -= ball_center;
+      
+      // We need to take dot product of hand_vector with elbow_ball_vector 
+      // and this will give us the distance. If the result is less than zero then the hand vector
+      // is pointing away from the ball.
+      double distance, radius = 4.5;
+      distance = dot(hand_vector, elbow_ball_vector);
+      if (distance > 0 || dot(elbow_ball_vector, elbow_ball_vector) < radius*radius) {
+        printf("Distance is: %f\n", distance);
+      }
     }
-    double distance;
-    distance = dot(right_elbow, right_hand);
-    printf("Distance: %f\n", distance);
     //printf("Position: %sa\n", bot->toString().c_str());
     //input.read(bot);
     //printf("Got message: %s\n", bot.toString().c_str());

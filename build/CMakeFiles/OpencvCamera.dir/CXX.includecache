@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/muri/thesis/OpencvCamera.cpp
+/home/robotics/thesis/OpencvCamera.cpp
 stdio.h
 -
 cv.h
