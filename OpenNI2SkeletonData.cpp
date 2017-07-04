@@ -40,7 +40,7 @@ Bottle showBottle(Bottle& anUnknownBottle, int indentation = 0) {
         if (element.isList()) {
           Bottle *lst = element.asList();
           //printf("list of %d elements\n", lst->size());
-          if (i == 38 || i == 50) {
+          if (i == 32 || i == 44) {
             bot.add(element);
             //container->asList()->fromString(lst->toString());
           } 
@@ -94,8 +94,12 @@ int main(int argc, char* argv[]) {
    
       // Create the hand vector from elbow and wrist joints.
       hand_vector = wrist_joint - elbow_joint;
-      printf("hand vector after: %s\n", hand_vector.toString().c_str());
+      printf("hand vector before: %s\n", hand_vector.toString().c_str());
       
+      if (norm(hand_vector) > 0) {
+        hand_vector /= norm(hand_vector);
+      } 
+      printf("hand vector after: %s\n", hand_vector.toString().c_str());
       // Now we need to create ball centre point as vector.
       Vector ball_center(3);
       ball_center[0] = 0.0;
@@ -105,22 +109,26 @@ int main(int argc, char* argv[]) {
       // Create another vector from elbow joint to ball center.
       // This is needed to get dot product of hand_vector.
       Vector elbow_ball_vector(3);
-      elbow_ball_vector = elbow_joint - ball_center;
+      elbow_ball_vector = ball_center - elbow_joint;
 
   
       // We need to take dot product of hand_vector with elbow_ball_vector 
       // and this will give us the distance. If the result is less than zero then the hand vector
       // is pointing away from the ball.
-      double distance, radius = 10;
+      double distance, radius = 4.5;
       distance = dot(hand_vector, elbow_ball_vector);
       
       // Scale hand vector in order to calculate the closest point to the ball.
       Vector hand_vector_scaled(3), closest_point(3);
       hand_vector_scaled = hand_vector * distance;
       closest_point = elbow_joint + hand_vector_scaled;
-            
-
-      if (distance > 0 && dot(closest_point, ball_center) < radius * radius) {
+      
+      // Check the distance between the closest point and object center. If it is smaller than 
+      // the radius then the points is inside the object. That means that the hand points the object with 
+      // correct coordinates. 
+      printf("Distance: %f\n", distance);      
+      printf("D2: %f\n", dot(ball_center - closest_point, ball_center - closest_point));
+      if (distance > 0 && dot(ball_center - closest_point, ball_center - closest_point) < radius * radius) {
         printf("Pointing correctly: %f\n", distance);
       }
     }
