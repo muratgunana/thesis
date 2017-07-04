@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/robotics/thesis/OpencvGrabber.cpp
+/home/muri/thesis/OpencvGrabber.cpp
 stdio.h
 -
 cv.h
