@@ -7,6 +7,8 @@
 #include <yarp/math/api.h>
 #include <yarp/math/Quaternion.h>
 #include <yarp/math/Math.h>
+#include <iostream>
+#include <map>
 #include <stdio.h>
 #include <yarp/os/Vocab.h>
 using namespace yarp::os;
@@ -102,10 +104,23 @@ int main(int argc, char* argv[]) {
       printf("hand vector after: %s\n", hand_vector.toString().c_str());
       // Now we need to create ball centre point as vector.
       Vector ball_center(3);
-      ball_center[0] = 0.0;
-      ball_center[1] = -27.5; 
-      ball_center[2] = 40.0;
-
+      
+      // Home ball position coordinates.
+       //ball_center[0] = 0.0;
+       //ball_center[1] = -27.5; 
+       //ball_center[2] = 40.0;
+    
+      // Robotics lab ball position coordinates.
+      ball_center[0] = 26.0;
+      ball_center[1] = -16.0; 
+      ball_center[2] = 43.5;
+      
+      VectorOf<Vector> vector_storage(3);
+      //vector_storage.push_back(ball_center);
+      
+      std::map<int,Vector> mymap;
+      //mymap.insert(2, ball_center);
+      printf("Storage size: %d\n", vector_storage.size());
       // Create another vector from elbow joint to ball center.
       // This is needed to get dot product of hand_vector.
       Vector elbow_ball_vector(3);
@@ -115,7 +130,7 @@ int main(int argc, char* argv[]) {
       // We need to take dot product of hand_vector with elbow_ball_vector 
       // and this will give us the distance. If the result is less than zero then the hand vector
       // is pointing away from the ball.
-      double distance, radius = 4.5;
+      double distance, radius = 10.0;
       distance = dot(hand_vector, elbow_ball_vector);
       
       // Scale hand vector in order to calculate the closest point to the ball.

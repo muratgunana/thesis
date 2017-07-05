@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/muri/thesis/OpenNI2SkeletonData.cpp
+/home/robotics/thesis/OpenNI2SkeletonData.cpp
 yarp/os/Network.h
 -
 yarp/os/BufferedPort.h
@@ -22,6 +22,10 @@ yarp/math/api.h
 yarp/math/Quaternion.h
 -
 yarp/math/Math.h
+-
+iostream
+-
+map
 -
 stdio.h
 -

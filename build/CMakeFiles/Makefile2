@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/muri/thesis
+CMAKE_SOURCE_DIR = /home/robotics/thesis
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/muri/thesis/build
+CMAKE_BINARY_DIR = /home/robotics/thesis/build
 
 #=============================================================================
 # Target rules for target CMakeFiles/OpencvCamera.dir
@@ -66,7 +66,7 @@ CMAKE_BINARY_DIR = /home/muri/thesis/build
 CMakeFiles/OpencvCamera.dir/all:
 	$(MAKE) -f CMakeFiles/OpencvCamera.dir/build.make CMakeFiles/OpencvCamera.dir/depend
 	$(MAKE) -f CMakeFiles/OpencvCamera.dir/build.make CMakeFiles/OpencvCamera.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/muri/thesis/build/CMakeFiles --progress-num=9,10 "Built target OpencvCamera"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robotics/thesis/build/CMakeFiles --progress-num=9,10 "Built target OpencvCamera"
 .PHONY : CMakeFiles/OpencvCamera.dir/all
 
 # Include target in all.
@@ -76,9 +76,9 @@ all: CMakeFiles/OpencvCamera.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/OpencvCamera.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/muri/thesis/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotics/thesis/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/OpencvCamera.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/muri/thesis/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotics/thesis/build/CMakeFiles 0
 .PHONY : CMakeFiles/OpencvCamera.dir/rule
 
 # Convenience name for target.
@@ -103,7 +103,7 @@ clean: CMakeFiles/OpencvCamera.dir/clean
 CMakeFiles/OpencvGrabber.dir/all:
 	$(MAKE) -f CMakeFiles/OpencvGrabber.dir/build.make CMakeFiles/OpencvGrabber.dir/depend
 	$(MAKE) -f CMakeFiles/OpencvGrabber.dir/build.make CMakeFiles/OpencvGrabber.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/muri/thesis/build/CMakeFiles --progress-num=11,12 "Built target OpencvGrabber"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robotics/thesis/build/CMakeFiles --progress-num=11,12 "Built target OpencvGrabber"
 .PHONY : CMakeFiles/OpencvGrabber.dir/all
 
 # Include target in all.
@@ -113,9 +113,9 @@ all: CMakeFiles/OpencvGrabber.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/OpencvGrabber.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/muri/thesis/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotics/thesis/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/OpencvGrabber.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/muri/thesis/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotics/thesis/build/CMakeFiles 0
 .PHONY : CMakeFiles/OpencvGrabber.dir/rule
 
 # Convenience name for target.
@@ -140,7 +140,7 @@ clean: CMakeFiles/OpencvGrabber.dir/clean
 CMakeFiles/OpenNI2SkeletonData.dir/all:
 	$(MAKE) -f CMakeFiles/OpenNI2SkeletonData.dir/build.make CMakeFiles/OpenNI2SkeletonData.dir/depend
 	$(MAKE) -f CMakeFiles/OpenNI2SkeletonData.dir/build.make CMakeFiles/OpenNI2SkeletonData.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/muri/thesis/build/CMakeFiles --progress-num=7,8 "Built target OpenNI2SkeletonData"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robotics/thesis/build/CMakeFiles --progress-num=7,8 "Built target OpenNI2SkeletonData"
 .PHONY : CMakeFiles/OpenNI2SkeletonData.dir/all
 
 # Include target in all.
@@ -150,9 +150,9 @@ all: CMakeFiles/OpenNI2SkeletonData.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/OpenNI2SkeletonData.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/muri/thesis/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotics/thesis/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/OpenNI2SkeletonData.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/muri/thesis/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotics/thesis/build/CMakeFiles 0
 .PHONY : CMakeFiles/OpenNI2SkeletonData.dir/rule
 
 # Convenience name for target.
@@ -177,7 +177,7 @@ clean: CMakeFiles/OpenNI2SkeletonData.dir/clean
 CMakeFiles/ObjectDetection.dir/all:
 	$(MAKE) -f CMakeFiles/ObjectDetection.dir/build.make CMakeFiles/ObjectDetection.dir/depend
 	$(MAKE) -f CMakeFiles/ObjectDetection.dir/build.make CMakeFiles/ObjectDetection.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/muri/thesis/build/CMakeFiles --progress-num=5,6 "Built target ObjectDetection"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robotics/thesis/build/CMakeFiles --progress-num=5,6 "Built target ObjectDetection"
 .PHONY : CMakeFiles/ObjectDetection.dir/all
 
 # Include target in all.
@@ -187,9 +187,9 @@ all: CMakeFiles/ObjectDetection.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ObjectDetection.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/muri/thesis/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotics/thesis/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ObjectDetection.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/muri/thesis/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotics/thesis/build/CMakeFiles 0
 .PHONY : CMakeFiles/ObjectDetection.dir/rule
 
 # Convenience name for target.
@@ -214,7 +214,7 @@ clean: CMakeFiles/ObjectDetection.dir/clean
 CMakeFiles/FindLocation.dir/all:
 	$(MAKE) -f CMakeFiles/FindLocation.dir/build.make CMakeFiles/FindLocation.dir/depend
 	$(MAKE) -f CMakeFiles/FindLocation.dir/build.make CMakeFiles/FindLocation.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/muri/thesis/build/CMakeFiles --progress-num=1,2 "Built target FindLocation"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robotics/thesis/build/CMakeFiles --progress-num=1,2 "Built target FindLocation"
 .PHONY : CMakeFiles/FindLocation.dir/all
 
 # Include target in all.
@@ -224,9 +224,9 @@ all: CMakeFiles/FindLocation.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/FindLocation.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/muri/thesis/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotics/thesis/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/FindLocation.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/muri/thesis/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotics/thesis/build/CMakeFiles 0
 .PHONY : CMakeFiles/FindLocation.dir/rule
 
 # Convenience name for target.
@@ -251,7 +251,7 @@ clean: CMakeFiles/FindLocation.dir/clean
 CMakeFiles/LookAtLocation.dir/all:
 	$(MAKE) -f CMakeFiles/LookAtLocation.dir/build.make CMakeFiles/LookAtLocation.dir/depend
 	$(MAKE) -f CMakeFiles/LookAtLocation.dir/build.make CMakeFiles/LookAtLocation.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/muri/thesis/build/CMakeFiles --progress-num=3,4 "Built target LookAtLocation"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robotics/thesis/build/CMakeFiles --progress-num=3,4 "Built target LookAtLocation"
 .PHONY : CMakeFiles/LookAtLocation.dir/all
 
 # Include target in all.
@@ -261,9 +261,9 @@ all: CMakeFiles/LookAtLocation.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/LookAtLocation.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/muri/thesis/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotics/thesis/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/LookAtLocation.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/muri/thesis/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotics/thesis/build/CMakeFiles 0
 .PHONY : CMakeFiles/LookAtLocation.dir/rule
 
 # Convenience name for target.
