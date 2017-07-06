@@ -56,7 +56,11 @@ Bottle showBottle(Bottle& anUnknownBottle, int indentation = 0) {
   //printf("Newlist: %s\n", bot.toString().c_str());
   return bot;
 }
- 
+
+void showObjectDetection(Vector& hand_vector, Vector& ball_center) { 
+  
+} 
+
 int main(int argc, char* argv[]) {
   Network yarp;
   BufferedPort<Bottle> input;
@@ -101,9 +105,9 @@ int main(int argc, char* argv[]) {
       if (norm(hand_vector) > 0) {
         hand_vector /= norm(hand_vector);
       } 
-      printf("hand vector after: %s\n", hand_vector.toString().c_str());
+      printf("hand vector normalized: %s\n", hand_vector.toString().c_str());
       // Now we need to create ball centre point as vector.
-      Vector ball_center(3);
+      Vector ball_center(3), red_ball(3), purple_ball(3);
       
       // Home ball position coordinates.
        //ball_center[0] = 0.0;
@@ -111,18 +115,27 @@ int main(int argc, char* argv[]) {
        //ball_center[2] = 40.0;
     
       // Robotics lab ball position coordinates.
-      ball_center[0] = 26.0;
-      ball_center[1] = -16.0; 
-      ball_center[2] = 43.5;
+      red_ball[0] = 26.0;
+      red_ball[1] = -16.0; 
+      red_ball[2] = 43.5;
+
+      purple_ball[0] = -8.5;
+      purple_ball[1] = -16.0;
+      purple_ball[2] = 43.5;
+     
       
-      VectorOf<Vector> vector_storage(3);
-      //vector_storage.push_back(ball_center);
+      VectorOf<Vector> vector_storage(2);
+      //vector_storage[1] = red_ball;
+      //vector_storage[2] = purple_ball;
       
-      std::map<int,Vector> mymap;
-      //mymap.insert(2, ball_center);
-      printf("Storage size: %d\n", vector_storage.size());
-      // Create another vector from elbow joint to ball center.
+      for (int i = 0; i < vector_storage.size(); ++i) {
+        // Create another vector from elbow joint to ball center.
       // This is needed to get dot product of hand_vector.
+      if (i == 0) ball_center = red_ball;
+      else
+        ball_center = purple_ball;
+      //printf("Vector storage: %s\n", vector_storage[i].toString().c_str());
+      //ball_center = vector_storage[i];
       Vector elbow_ball_vector(3);
       elbow_ball_vector = ball_center - elbow_joint;
 
@@ -145,6 +158,7 @@ int main(int argc, char* argv[]) {
       printf("D2: %f\n", dot(ball_center - closest_point, ball_center - closest_point));
       if (distance > 0 && dot(ball_center - closest_point, ball_center - closest_point) < radius * radius) {
         printf("Pointing correctly: %f\n", distance);
+      }
       }
     }
     //printf("Position: %sa\n", bot->toString().c_str());
