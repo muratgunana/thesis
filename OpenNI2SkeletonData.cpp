@@ -114,14 +114,22 @@ int main(int argc, char* argv[]) {
        //ball_center[1] = -27.5; 
        //ball_center[2] = 40.0;
     
-      // Robotics lab ball position coordinates.
-      red_ball[0] = 26.0;
-      red_ball[1] = -16.0; 
-      red_ball[2] = 43.5;
+      red_ball[0] = 0.0;
+      red_ball[1] = -23.0; 
+      red_ball[2] = 40.0;
 
-      purple_ball[0] = -8.5;
-      purple_ball[1] = -16.0;
-      purple_ball[2] = 43.5;
+      purple_ball[0] = -30.0;
+      purple_ball[1] = -23.0;
+      purple_ball[2] = 40.0;
+      
+      // Robotics lab ball position coordinates.
+      //red_ball[0] = 0.0;
+      //red_ball[1] = -27.5; 
+      //red_ball[2] = 40.0;
+
+      //purple_ball[0] = -8.5;
+      //purple_ball[1] = -16.0;
+      //purple_ball[2] = 43.5;
      
       
       VectorOf<Vector> vector_storage(2);
@@ -143,7 +151,7 @@ int main(int argc, char* argv[]) {
       // We need to take dot product of hand_vector with elbow_ball_vector 
       // and this will give us the distance. If the result is less than zero then the hand vector
       // is pointing away from the ball.
-      double distance, radius = 10.0;
+      double distance, radius = 4.5;
       distance = dot(hand_vector, elbow_ball_vector);
       
       // Scale hand vector in order to calculate the closest point to the ball.
