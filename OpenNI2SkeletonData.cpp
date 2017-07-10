@@ -1,7 +1,7 @@
 #include <yarp/os/Network.h>
 #include <yarp/os/BufferedPort.h>
 #include <yarp/os/Bottle.h>
-
+#include <yarp/sig/all.h>
 #include <yarp/sig/Vector.h>
 #include <yarp/sig/Matrix.h>
 #include <yarp/math/api.h>
@@ -64,13 +64,20 @@ void showObjectDetection(Vector& hand_vector, Vector& ball_center) {
 int main(int argc, char* argv[]) {
   Network yarp;
   BufferedPort<Bottle> input;
+  BufferedPort<ImageOf<PixelRgb> > imagePort;
   input.open("/receiver");
+  imagePort.open("/imagergb");
+  Network::connect("/OpenNI2/imageFrame:o","/imagergb");
   Network::connect("/OpenNI2/userSkeleton:o","/receiver");
   Vector elbow_joint(3), wrist_joint(3), hand_vector(3);
   while(true) {
     Bottle *bot = input.read();
+    ImageOf<PixelRgb> *image = imagePort.read();
     if (!bot->find("USER").isNull()) {
       //printf("User: %d\n", bot->find("USER").asInt());
+    }
+    if (image != NULL) {
+      printf("The image size: %dx%d\n", image->width(), image->height());
     }
     Bottle& pos = bot->findGroup("POS");
     //printf("Pos-whole : %s\n", pos.toString().c_str());
@@ -114,22 +121,22 @@ int main(int argc, char* argv[]) {
        //ball_center[1] = -27.5; 
        //ball_center[2] = 40.0;
     
-      red_ball[0] = 0.0;
-      red_ball[1] = -23.0; 
-      red_ball[2] = 40.0;
-
-      purple_ball[0] = -30.0;
-      purple_ball[1] = -23.0;
-      purple_ball[2] = 40.0;
-      
-      // Robotics lab ball position coordinates.
-      //red_ball[0] = 0.0;
-      //red_ball[1] = -27.5; 
+      //red_ll[0] = 0.0;
+      //red_ball[1] = -23.0; 
       //red_ball[2] = 40.0;
 
-      //purple_ball[0] = -8.5;
-      //purple_ball[1] = -16.0;
-      //purple_ball[2] = 43.5;
+      //purple_ball[0] = -30.0;
+      //purple_ball[1] = -23.0;
+      //purple_ball[2] = 40.0;
+      
+      // Robotics lab ball position coordinates.
+      red_ball[0] = 26.0;
+      red_ball[1] = -20.0; 
+      red_ball[2] = 43.5;
+
+      purple_ball[0] = -8.5;
+      purple_ball[1] = -20.0;
+      purple_ball[2] = 43.5;
      
       
       VectorOf<Vector> vector_storage(2);

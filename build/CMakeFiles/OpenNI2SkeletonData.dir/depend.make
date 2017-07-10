@@ -25,6 +25,7 @@ CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/NameStore.h
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/NestedContact.h
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/NetInt32.h
+CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/NetUint16.h
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/Network.h
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/Port.h
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/PortReader.h
@@ -43,7 +44,13 @@ CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/Value.h
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/Vocab.h
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/os/api.h
+CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/sig/Image.h
+CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/sig/ImageDraw.h
+CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/sig/ImageFile.h
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/sig/Matrix.h
+CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/sig/Sound.h
+CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/sig/SoundFile.h
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/sig/Vector.h
+CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/sig/all.h
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o: /usr/local/include/yarp/sig/api.h
 

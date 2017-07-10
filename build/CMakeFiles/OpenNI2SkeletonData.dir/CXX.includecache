@@ -6,12 +6,14 @@
 
 #IncludeRegexTransform: 
 
-/home/muri/thesis/OpenNI2SkeletonData.cpp
+/home/robotics/thesis/OpenNI2SkeletonData.cpp
 yarp/os/Network.h
 -
 yarp/os/BufferedPort.h
 -
 yarp/os/Bottle.h
+-
+yarp/sig/all.h
 -
 yarp/sig/Vector.h
 -
@@ -206,6 +208,12 @@ yarp/conf/numeric.h
 yarp/os/api.h
 -
 
+/usr/local/include/yarp/os/NetUint16.h
+yarp/conf/numeric.h
+-
+yarp/os/api.h
+-
+
 /usr/local/include/yarp/os/Network.h
 yarp/os/ContactStyle.h
 -
@@ -340,6 +348,32 @@ yarp/os/ConstString.h
 yarp/conf/api.h
 -
 
+/usr/local/include/yarp/sig/Image.h
+yarp/conf/system.h
+-
+yarp/os/Portable.h
+-
+yarp/os/Vocab.h
+-
+yarp/os/NetUint16.h
+-
+yarp/sig/api.h
+-
+yarp/os/NetInt32.h
+-
+
+/usr/local/include/yarp/sig/ImageDraw.h
+math.h
+-
+yarp/sig/Image.h
+-
+
+/usr/local/include/yarp/sig/ImageFile.h
+yarp/os/ConstString.h
+-
+yarp/sig/Image.h
+-
+
 /usr/local/include/yarp/sig/Matrix.h
 stdlib.h
 -
@@ -350,6 +384,16 @@ yarp/os/Portable.h
 yarp/sig/Vector.h
 -
 yarp/os/ManagedBytes.h
+-
+
+/usr/local/include/yarp/sig/Sound.h
+yarp/os/Portable.h
+-
+yarp/sig/api.h
+-
+
+/usr/local/include/yarp/sig/SoundFile.h
+yarp/sig/Sound.h
 -
 
 /usr/local/include/yarp/sig/Vector.h
@@ -364,6 +408,22 @@ yarp/os/ManagedBytes.h
 yarp/sig/api.h
 -
 yarp/os/Log.h
+-
+
+/usr/local/include/yarp/sig/all.h
+yarp/sig/ImageDraw.h
+-
+yarp/sig/ImageFile.h
+-
+yarp/sig/Image.h
+-
+yarp/sig/Sound.h
+-
+yarp/sig/SoundFile.h
+-
+yarp/sig/Vector.h
+-
+yarp/sig/Matrix.h
 -
 
 /usr/local/include/yarp/sig/api.h
