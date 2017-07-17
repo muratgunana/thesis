@@ -1,8 +1,8 @@
-/home/muri/thesis/build/CMakeFiles/rebuild_cache.dir
-/home/muri/thesis/build/CMakeFiles/OpencvCamera.dir
-/home/muri/thesis/build/CMakeFiles/OpencvGrabber.dir
-/home/muri/thesis/build/CMakeFiles/OpenNI2SkeletonData.dir
-/home/muri/thesis/build/CMakeFiles/ObjectDetection.dir
-/home/muri/thesis/build/CMakeFiles/edit_cache.dir
-/home/muri/thesis/build/CMakeFiles/FindLocation.dir
-/home/muri/thesis/build/CMakeFiles/LookAtLocation.dir
+/home/robotics/thesis/build/CMakeFiles/rebuild_cache.dir
+/home/robotics/thesis/build/CMakeFiles/OpencvCamera.dir
+/home/robotics/thesis/build/CMakeFiles/OpencvGrabber.dir
+/home/robotics/thesis/build/CMakeFiles/OpenNI2SkeletonData.dir
+/home/robotics/thesis/build/CMakeFiles/ObjectDetection.dir
+/home/robotics/thesis/build/CMakeFiles/edit_cache.dir
+/home/robotics/thesis/build/CMakeFiles/FindLocation.dir
+/home/robotics/thesis/build/CMakeFiles/LookAtLocation.dir

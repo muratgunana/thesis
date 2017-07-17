@@ -3,80 +3,51 @@
 #include <yarp/os/Bottle.h>
 #include <yarp/sig/all.h>
 #include <yarp/os/Property.h>
-
+#include <yarp/os/RFModule.h>
 #include <yarp/sig/Vector.h>
 #include <yarp/sig/Matrix.h>
 #include <yarp/math/api.h>
 #include <yarp/math/Quaternion.h>
 #include <yarp/math/Math.h>
+#include <yarp/dev/GazeControl.h>
+#include <yarp/dev/PolyDriver.h>
 
+#include <iomanip>
 #include <iostream>
 #include <map>
 #include <stdio.h>
 #include <yarp/os/Vocab.h>
+
+using namespace std;
 using namespace yarp::os;
 using namespace yarp::sig;
+using namespace yarp::dev;
 using namespace yarp::math;
 
-Bottle showBottle(Bottle& anUnknownBottle, int indentation = 0) { 
-  Bottle bot;
-  for (int i=0; i<anUnknownBottle.size(); i++) {
-    for (int j=0; j<indentation; j++) { printf(" "); }
-    //printf("[%d]: ", i);
-        
-    Value& element = anUnknownBottle.get(i);
-    switch (element.getCode()) {
-      case BOTTLE_TAG_INT:
-        //printf("int %d\n", element.asInt());
-        break;
-      case BOTTLE_TAG_DOUBLE:
-        //printf("float %g\n", element.asDouble());
-        break;
-      case BOTTLE_TAG_STRING:
-        //printf("string \"%s\"\n", element.asString().c_str());
-        break;
-      case BOTTLE_TAG_BLOB:
-        //printf("binary blob of length %d\n", element.asBlobLength());
-        break;
-      case BOTTLE_TAG_VOCAB:
-        //printf("vocab [%s]\n", Vocab::decode(element.asVocab()).c_str());
-        break;
-      default:
-        if (element.isList()) {
-          Bottle *lst = element.asList();
-          //printf("list of %d elements\n", lst->size());
-          if (i == 32 || i == 44) {
-            bot.add(element);
-            //container->asList()->fromString(lst->toString());
-          } 
-          showBottle(*lst,indentation+2);
-        } else {
-          printf("unrecognized type\n");
-        }
-        break;
-    }
+class MultiModal : public RFModule {
+  
+protected:
+  PolyDriver clientGaze;
+  IGazeControl *igaze;
+  BufferedPort<Bottle> skeletonPort;
+  BufferedPort<ImageOf<PixelRgb> > imagePort; 
+  int count;
+  
+public:
+  double getPeriod() {
+    // module periodicity (seconds).
+    return 0.0;
   }
-  //printf("Newlist: %s\n", bot.toString().c_str());
-  return bot;
-}
 
-void showObjectDetection(Vector& hand_vector, Vector& ball_center) { 
+  // This is the main function that will be called periodically.
+  bool updateModule() {
+    count++;
+    cout << "[" << count << "]" << " updateModule..." << endl;
+    
+    Vector elbow_joint(3), wrist_joint(3), hand_vector(3);
+    Property prop;
   
-} 
-
-int main(int argc, char* argv[]) {
-  Network yarp;
-  BufferedPort<Bottle> input;
-  BufferedPort<ImageOf<PixelRgb> > imagePort;
-  input.open("/receiver");
-  imagePort.open("/imagergb");
-  Network::connect("/OpenNI2/imageFrame:o","/imagergb");
-  Network::connect("/OpenNI2/userSkeleton:o","/receiver");
-  Vector elbow_joint(3), wrist_joint(3), hand_vector(3);
-  yarp::os::Property prop;
-  
-  while(true) {
-    Bottle *bot = input.read();
+    Bottle *bot = skeletonPort.read();
     ImageOf<PixelRgb> *image = imagePort.read();
     if (!bot->find("USER").isNull()) {
       //printf("User: %d\n", bot->find("USER").asInt());
@@ -123,7 +94,7 @@ int main(int argc, char* argv[]) {
        
       prop.fromConfigFile("object.ini");
       Bottle envBottle;
-      envBottle = prop.findGroup("home");
+      envBottle = prop.findGroup("robotics");
       
       red_ball[0] = envBottle.findGroup("red").get(1).asDouble();
       red_ball[1] = envBottle.findGroup("red").get(2).asDouble(); 
@@ -167,13 +138,123 @@ int main(int argc, char* argv[]) {
         printf("D2: %f\n", dot(ball_center - closest_point, ball_center - closest_point));
         if (distance > 0 && dot(ball_center - closest_point, ball_center - closest_point) < radius * radius) {
           printf("Pointing correctly: %f\n", distance);
+          printf("Ball center before: %s\n", ball_center.toString().c_str());
+          igaze->lookAtFixationPoint(ball_center/100.0);// request to gaze at the desired fixation point and wait for reply (sync method)
+          printf("Ball center after: %s\n", (ball_center/100.0).toString().c_str());
+          igaze->waitMotionDone(); 
         }
       }
     }
-    //printf("Position: %sa\n", bot->toString().c_str());
-    //input.read(bot);
-    //printf("Got message: %s\n", bot.toString().c_str());
+    return true;
   }
-  input.close();
+
+  // Message handler.
+  bool respond(const Bottle& command, Bottle& reply) {
+    if (command.get(0).asString() == "quit")
+      return false;
+    else
+      reply = command;
+    return true;
+  }
+
+  // Configure function. Receive a previously initialized
+  // resource finder object. Use it to configure your module.
+  // If you are migrating from the old module, this is the function
+  // equivalent to the "open" method.
+  bool configure(yarp::os::ResourceFinder &rf) {
+    count=0;
+    // optional, attach a port to the module
+    // so that messages received from the port are redirected
+    // to the respond method
+    skeletonPort.open("/receiver");
+    imagePort.open("/imagergb");
+    Network::connect("/OpenNI2/imageFrame:o","/imagergb");
+    Network::connect("/OpenNI2/userSkeleton:o","/receiver");
+    
+    // open a client interface to connect to the gaze server
+    // we suppose that:
+    // 1 - the iCub simulator is running;
+    // 2 - the gaze server iKinGazeCtrl is running and
+    //     launched with the following options: "--from configSim.ini"
+    Property optGaze("(device gazecontrollerclient)");
+    optGaze.put("remote","/iKinGazeCtrl");
+    optGaze.put("local","/gaze_client");
+
+    if (!clientGaze.open(optGaze))
+      return false;
+    // open the view
+    clientGaze.view(igaze);
+    
+    return true;
+  }
+  // Interrupt function.
+  bool interruptModule() {
+    cout << "Interrupting your module, for port cleanup" << endl;
+    return true;
+  }
+  // Close function, to perform cleanup.
+  bool close() {
+    // optional, close port explicitly
+    cout << "Calling close function\n";
+    skeletonPort.close();
+    imagePort.close();
+    return true;
+  }
+ 
+  Bottle showBottle(Bottle& anUnknownBottle, int indentation = 0) { 
+    Bottle bot;
+    for (int i=0; i<anUnknownBottle.size(); i++) {
+      for (int j=0; j<indentation; j++) { printf(" "); }
+      //printf("[%d]: ", i);
+        
+      Value& element = anUnknownBottle.get(i);
+      switch (element.getCode()) {
+        case BOTTLE_TAG_INT:
+          //printf("int %d\n", element.asInt());
+          break;
+        case BOTTLE_TAG_DOUBLE:
+          //printf("float %g\n", element.asDouble());
+          break;
+        case BOTTLE_TAG_STRING:
+          //printf("string \"%s\"\n", element.asString().c_str());
+          break;
+        case BOTTLE_TAG_BLOB:
+          //printf("binary blob of length %d\n", element.asBlobLength());
+          break;
+        case BOTTLE_TAG_VOCAB:
+          //printf("vocab [%s]\n", Vocab::decode(element.asVocab()).c_str());
+          break;
+        default:
+          if (element.isList()) {
+            Bottle *lst = element.asList();
+            //printf("list of %d elements\n", lst->size());
+            if (i == 32 || i == 44) {
+              bot.add(element);
+              //container->asList()->fromString(lst->toString());
+            } 
+            showBottle(*lst,indentation+2);
+          } else {
+            printf("unrecognized type\n");
+          }
+          break;
+      }
+    }
+    //printf("Newlist: %s\n", bot.toString().c_str());
+    return bot;
+  }
+};
+
+int main(int argc, char* argv[]) {
+  Network yarp;
+  
+  MultiModal multiModal;
+
+  ResourceFinder rf;
+  rf.configure(argc, argv);
+  rf.setVerbose(true);
+  
+  cout << "Configuring and starting module. \n";
+  multiModal.runModule(rf);
+
   return 0;
 }
