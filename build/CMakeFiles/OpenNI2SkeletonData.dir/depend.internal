@@ -3,6 +3,9 @@
 
 CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o
  /home/robotics/thesis/OpenNI2SkeletonData.cpp
+ /usr/include/opencv/cv.h
+ /usr/include/opencv/cvaux.h
+ /usr/include/opencv/highgui.h
  /usr/local/include/yarp/conf/api.h
  /usr/local/include/yarp/conf/compiler.h
  /usr/local/include/yarp/conf/numeric.h

@@ -1,3 +1,12 @@
+#include <cv.h>
+#include <cvaux.h>
+#include <highgui.h>
+#include <opencv2/opencv.hpp>
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/objdetect/objdetect.hpp>
+
 #include <yarp/os/Network.h>
 #include <yarp/os/BufferedPort.h>
 #include <yarp/os/Bottle.h>
@@ -23,6 +32,9 @@ using namespace yarp::os;
 using namespace yarp::sig;
 using namespace yarp::dev;
 using namespace yarp::math;
+using namespace yarp::sig::draw;
+using namespace yarp::sig::file;
+using namespace cv;
 
 class MultiModal : public RFModule {
   
@@ -44,17 +56,10 @@ public:
     count++;
     cout << "[" << count << "]" << " updateModule..." << endl;
     
-    Vector elbow_joint(3), wrist_joint(3), hand_vector(3);
+    yarp::sig::Vector elbow_joint(3), wrist_joint(3), hand_vector(3);
     Property prop;
   
     Bottle *bot = skeletonPort.read();
-    ImageOf<PixelRgb> *image = imagePort.read();
-    if (!bot->find("USER").isNull()) {
-      //printf("User: %d\n", bot->find("USER").asInt());
-    }
-    if (image != NULL) {
-      printf("The image size: %dx%d\n", image->width(), image->height());
-    }
     Bottle& pos = bot->findGroup("POS");
     //printf("Pos-whole : %s\n", pos.toString().c_str());
     //printf("Pos-size: %d\n", bot->size());
@@ -90,7 +95,7 @@ public:
       } 
       printf("hand vector normalized: %s\n", hand_vector.toString().c_str());
       // Now we need to create ball centre point as vector.
-      Vector ball_center(3), red_ball(3), purple_ball(3);
+      yarp::sig::Vector ball_center(3), red_ball(3), purple_ball(3);
        
       prop.fromConfigFile("object.ini");
       Bottle envBottle;
@@ -104,7 +109,7 @@ public:
       purple_ball[1] = envBottle.findGroup("purple").get(2).asDouble();
       purple_ball[2] = envBottle.findGroup("purple").get(3).asDouble();
      
-      VectorOf<Vector> vector_storage(2);
+      VectorOf<yarp::sig::Vector> vector_storage(2);
       //vector_storage[1] = red_ball;
       //vector_storage[2] = purple_ball;
       
@@ -116,7 +121,7 @@ public:
           ball_center = purple_ball;
         //printf("Vector storage: %s\n", vector_storage[i].toString().c_str());
         //ball_center = vector_storage[i];
-        Vector elbow_ball_vector(3);
+        yarp::sig::Vector elbow_ball_vector(3);
         elbow_ball_vector = ball_center - elbow_joint;
 
   
@@ -127,7 +132,7 @@ public:
         distance = dot(hand_vector, elbow_ball_vector);
       
         // Scale hand vector in order to calculate the closest point to the ball.
-        Vector hand_vector_scaled(3), closest_point(3);
+        yarp::sig::Vector hand_vector_scaled(3), closest_point(3);
         hand_vector_scaled = hand_vector * distance;
         closest_point = elbow_joint + hand_vector_scaled;
       
@@ -141,13 +146,60 @@ public:
           printf("Ball center before: %s\n", ball_center.toString().c_str());
           igaze->lookAtFixationPoint(ball_center/100.0);// request to gaze at the desired fixation point and wait for reply (sync method)
           printf("Ball center after: %s\n", (ball_center/100.0).toString().c_str());
-          igaze->waitMotionDone(); 
+          igaze->waitMotionDone();
+          if (objectRecognition()) {
+            printf("Streaming works.\n"); 
+          } 
         }
       }
     }
     return true;
   }
+  
+  // Performs obbject recognition.
+  bool objectRecognition() {
+    printf("Copying YARP image to an OpenCV/IPL image\n");
+    
+    ImageOf<PixelRgb> *image = imagePort.read();
+    if (image != NULL) {
+      printf("The image size: %dx%d\n", image->width(), image->height());
+    }
+    Mat imageFrame, gframe, baseframe;
+  
+    yarp::sig::Vector ang;
+    //igaze->getAngles(ang);
+    while (cv::waitKey(27) != 'Esc') { 
+      image = imagePort.read();
+      IplImage *cvImage = cvCreateImage(cvSize(image->width(),  
+                                             image->height()), 
+                                      IPL_DEPTH_8U, 3 );
+      cvCvtColor((IplImage*)image->getIplImage(), cvImage, CV_RGB2BGR);
+      cv::Mat image_mat(cvImage);
+      baseframe = image_mat.clone();
 
+      cvtColor(baseframe,gframe, CV_BGR2GRAY);
+      GaussianBlur(gframe,gframe,Size(9,9),2,2);
+      cv::vector<cv::Vec3f> circles;
+
+      // Apply the Hough Transform to find the circles
+      HoughCircles( gframe, circles, CV_HOUGH_GRADIENT, 2, gframe.rows/4, 179, 20, 0, 0);
+
+      // Draw the circles detected
+      for( size_t i = 0; i < circles.size(); i++ ) {
+        Point center(cvRound(circles[i][0]), cvRound(circles[i][1]));
+        int radius = cvRound(circles[i][2]);
+        // circle center
+        circle(baseframe, center, 3, Scalar(0,255,0), -1, 8, 0 );
+        // circle outline
+        circle(baseframe, center, radius, Scalar(0,0,255), 3, 8, 0 );
+        printf("Circle sizes: %d\n",radius);
+      }
+
+      imshow("Hough circles", baseframe); 
+    }   
+    return true;
+  }
+  
   // Message handler.
   bool respond(const Bottle& command, Bottle& reply) {
     if (command.get(0).asString() == "quit")
