@@ -58,6 +58,10 @@ public:
     
     yarp::sig::Vector elbow_joint(3), wrist_joint(3), hand_vector(3);
     Property prop;
+   // objectRecognition();  
+//    if (objectRecognition()) {
+  //           printf("Streaming works.\n");
+  // }
   
     Bottle *bot = skeletonPort.read();
     Bottle& pos = bot->findGroup("POS");
@@ -147,9 +151,7 @@ public:
           igaze->lookAtFixationPoint(ball_center/100.0);// request to gaze at the desired fixation point and wait for reply (sync method)
           printf("Ball center after: %s\n", (ball_center/100.0).toString().c_str());
           igaze->waitMotionDone();
-          if (objectRecognition()) {
-            printf("Streaming works.\n"); 
-          } 
+          objectRecognition();
         }
       }
     }
@@ -157,47 +159,66 @@ public:
   }
   
   // Performs obbject recognition.
-  bool objectRecognition() {
+  void objectRecognition() {
     printf("Copying YARP image to an OpenCV/IPL image\n");
     
     ImageOf<PixelRgb> *image = imagePort.read();
     if (image != NULL) {
       printf("The image size: %dx%d\n", image->width(), image->height());
     }
-    Mat imageFrame, gframe, baseframe;
+    Mat orig_image;
   
-    yarp::sig::Vector ang;
-    //igaze->getAngles(ang);
     while (cv::waitKey(27) != 'Esc') { 
       image = imagePort.read();
       IplImage *cvImage = cvCreateImage(cvSize(image->width(),  
                                              image->height()), 
                                       IPL_DEPTH_8U, 3 );
       cvCvtColor((IplImage*)image->getIplImage(), cvImage, CV_RGB2BGR);
-      cv::Mat image_mat(cvImage);
-      baseframe = image_mat.clone();
+      cv::Mat bgr_image(cvImage);
+      //printf("Tewst test. \n");
+      orig_image = bgr_image.clone();
 
-      cvtColor(baseframe,gframe, CV_BGR2GRAY);
-      GaussianBlur(gframe,gframe,Size(9,9),2,2);
-      cv::vector<cv::Vec3f> circles;
+      cv::medianBlur(bgr_image, bgr_image, 3);
+      
+      // Convert input image to HSV
+      cv::Mat hsv_image;
+      cv::cvtColor(bgr_image, hsv_image, cv::COLOR_BGR2HSV);
+ 
+      // Threshold the HSV image, keep only the red pixels
+      cv::Mat lower_red_hue_range;
+      cv::Mat upper_red_hue_range;
+      cv::inRange(hsv_image, cv::Scalar(0, 100, 100), cv::Scalar(10, 255, 255), lower_red_hue_range);
+      cv::inRange(hsv_image, cv::Scalar(160, 100, 100), cv::Scalar(179, 255, 255), upper_red_hue_range);
 
-      // Apply the Hough Transform to find the circles
-      HoughCircles( gframe, circles, CV_HOUGH_GRADIENT, 2, gframe.rows/4, 179, 20, 0, 0);
+      // Combine the above two images
+      cv::Mat red_hue_image;
+      cv::addWeighted(lower_red_hue_range, 1.0, upper_red_hue_range, 1.0, 0.0, red_hue_image);
+      cv::GaussianBlur(red_hue_image, red_hue_image, cv::Size(9, 9), 2, 2);
 
-      // Draw the circles detected
-      for( size_t i = 0; i < circles.size(); i++ ) {
-        Point center(cvRound(circles[i][0]), cvRound(circles[i][1]));
-        int radius = cvRound(circles[i][2]);
-        // circle center
-        circle(baseframe, center, 3, Scalar(0,255,0), -1, 8, 0 );
-        // circle outline
-        circle(baseframe, center, radius, Scalar(0,0,255), 3, 8, 0 );
-        printf("Circle sizes: %d\n",radius);
+      // Use the Hough transform to detect circles in the combined threshold image
+      std::vector<cv::Vec3f> circles;
+      cv::HoughCircles(red_hue_image, circles, CV_HOUGH_GRADIENT, 1, red_hue_image.rows/8, 200, 40, 0, 0);
+
+      // Loop over all detected circles and outline them on the original image
+      //if(circles.size() == 0) std::exit(-1);
+      for(size_t current_circle = 0; current_circle < circles.size(); ++current_circle) {
+        cv::Point center(cvRound(circles[current_circle][0]), cvRound(circles[current_circle][1]));
+        int radius = cvRound(circles[current_circle][2]);
+
+        cv::circle(orig_image, center, radius, cv::Scalar(0, 255, 0), 5);
       }
 
-      imshow("Hough circles", baseframe); 
-    }   
-    return true;
+      // Show images
+      cv::namedWindow("Threshold lower image", cv::WINDOW_AUTOSIZE);
+      cv::imshow("Threshold lower image", lower_red_hue_range);
+      cv::namedWindow("Threshold upper image", cv::WINDOW_AUTOSIZE);
+      cv::imshow("Threshold upper image", upper_red_hue_range);
+      cv::namedWindow("Combined threshold images", cv::WINDOW_AUTOSIZE);
+      cv::imshow("Combined threshold images", red_hue_image);
+      cv::namedWindow("Detected red circles on the input image", cv::WINDOW_AUTOSIZE);
+      cv::imshow("Detected red circles on the input image", orig_image);
+   }   
+    //return true;
   }
   
   // Message handler.
