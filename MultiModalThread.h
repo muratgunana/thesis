@@ -17,7 +17,12 @@ public:
   /**
    * @brief detects the circles and particular colors from the image frame,
    */
-  void detect(yarp::sig::ImageOf<yarp::sig::PixelRgb>& image);
+  void objectDetection(yarp::sig::ImageOf<yarp::sig::PixelRgb>& image);
+
+  /**
+   * @brief extracts skeleton data from 3D and handles collision detection in regard to objects.
+   */
+  void objectPointer();
 
   /**
    * @brief suspends the calling thread until the current thread execution finishes.
@@ -30,7 +35,7 @@ public:
   void interrupt();
 
 private:
-  yarp::sig::ImageOf<PixelRgb>* image;
+  yarp::sig::ImageOf<yarp::sig::PixelRgb>* image;
   bool interrupted;
   yarp::os::Semaphore semStart;
   yarp::os::Semaphore semDone;    

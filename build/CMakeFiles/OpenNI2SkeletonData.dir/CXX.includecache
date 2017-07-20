@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/robotics/thesis/OpenNI2SkeletonData.cpp
+/home/muri/thesis/OpenNI2SkeletonData.cpp
 cv.h
 -
 cvaux.h

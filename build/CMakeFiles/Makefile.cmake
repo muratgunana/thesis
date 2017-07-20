@@ -51,10 +51,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/OpencvCamera.dir/DependInfo.cmake"
-  "CMakeFiles/OpencvGrabber.dir/DependInfo.cmake"
-  "CMakeFiles/OpenNI2SkeletonData.dir/DependInfo.cmake"
-  "CMakeFiles/ObjectDetection.dir/DependInfo.cmake"
-  "CMakeFiles/FindLocation.dir/DependInfo.cmake"
-  "CMakeFiles/LookAtLocation.dir/DependInfo.cmake"
+  "CMakeFiles/main.dir/DependInfo.cmake"
   )

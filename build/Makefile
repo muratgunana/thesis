@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/robotics/thesis
+CMAKE_SOURCE_DIR = /home/muri/thesis
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/robotics/thesis/build
+CMAKE_BINARY_DIR = /home/muri/thesis/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotics/thesis/build/CMakeFiles /home/robotics/thesis/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/muri/thesis/build/CMakeFiles /home/muri/thesis/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotics/thesis/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/muri/thesis/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,244 +111,98 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named OpencvCamera
+# Target rules for targets named main
 
 # Build rule for target.
-OpencvCamera: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 OpencvCamera
-.PHONY : OpencvCamera
+main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 main
+.PHONY : main
 
 # fast build rule for target.
-OpencvCamera/fast:
-	$(MAKE) -f CMakeFiles/OpencvCamera.dir/build.make CMakeFiles/OpencvCamera.dir/build
-.PHONY : OpencvCamera/fast
+main/fast:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+.PHONY : main/fast
 
-#=============================================================================
-# Target rules for targets named OpencvGrabber
+MultiModalModule.o: MultiModalModule.cpp.o
 
-# Build rule for target.
-OpencvGrabber: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 OpencvGrabber
-.PHONY : OpencvGrabber
-
-# fast build rule for target.
-OpencvGrabber/fast:
-	$(MAKE) -f CMakeFiles/OpencvGrabber.dir/build.make CMakeFiles/OpencvGrabber.dir/build
-.PHONY : OpencvGrabber/fast
-
-#=============================================================================
-# Target rules for targets named OpenNI2SkeletonData
-
-# Build rule for target.
-OpenNI2SkeletonData: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 OpenNI2SkeletonData
-.PHONY : OpenNI2SkeletonData
-
-# fast build rule for target.
-OpenNI2SkeletonData/fast:
-	$(MAKE) -f CMakeFiles/OpenNI2SkeletonData.dir/build.make CMakeFiles/OpenNI2SkeletonData.dir/build
-.PHONY : OpenNI2SkeletonData/fast
-
-#=============================================================================
-# Target rules for targets named ObjectDetection
-
-# Build rule for target.
-ObjectDetection: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ObjectDetection
-.PHONY : ObjectDetection
-
-# fast build rule for target.
-ObjectDetection/fast:
-	$(MAKE) -f CMakeFiles/ObjectDetection.dir/build.make CMakeFiles/ObjectDetection.dir/build
-.PHONY : ObjectDetection/fast
-
-#=============================================================================
-# Target rules for targets named FindLocation
-
-# Build rule for target.
-FindLocation: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 FindLocation
-.PHONY : FindLocation
-
-# fast build rule for target.
-FindLocation/fast:
-	$(MAKE) -f CMakeFiles/FindLocation.dir/build.make CMakeFiles/FindLocation.dir/build
-.PHONY : FindLocation/fast
-
-#=============================================================================
-# Target rules for targets named LookAtLocation
-
-# Build rule for target.
-LookAtLocation: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 LookAtLocation
-.PHONY : LookAtLocation
-
-# fast build rule for target.
-LookAtLocation/fast:
-	$(MAKE) -f CMakeFiles/LookAtLocation.dir/build.make CMakeFiles/LookAtLocation.dir/build
-.PHONY : LookAtLocation/fast
-
-FindLocation.o: FindLocation.cpp.o
-
-.PHONY : FindLocation.o
+.PHONY : MultiModalModule.o
 
 # target to build an object file
-FindLocation.cpp.o:
-	$(MAKE) -f CMakeFiles/FindLocation.dir/build.make CMakeFiles/FindLocation.dir/FindLocation.cpp.o
-.PHONY : FindLocation.cpp.o
+MultiModalModule.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/MultiModalModule.cpp.o
+.PHONY : MultiModalModule.cpp.o
 
-FindLocation.i: FindLocation.cpp.i
+MultiModalModule.i: MultiModalModule.cpp.i
 
-.PHONY : FindLocation.i
+.PHONY : MultiModalModule.i
 
 # target to preprocess a source file
-FindLocation.cpp.i:
-	$(MAKE) -f CMakeFiles/FindLocation.dir/build.make CMakeFiles/FindLocation.dir/FindLocation.cpp.i
-.PHONY : FindLocation.cpp.i
+MultiModalModule.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/MultiModalModule.cpp.i
+.PHONY : MultiModalModule.cpp.i
 
-FindLocation.s: FindLocation.cpp.s
+MultiModalModule.s: MultiModalModule.cpp.s
 
-.PHONY : FindLocation.s
+.PHONY : MultiModalModule.s
 
 # target to generate assembly for a file
-FindLocation.cpp.s:
-	$(MAKE) -f CMakeFiles/FindLocation.dir/build.make CMakeFiles/FindLocation.dir/FindLocation.cpp.s
-.PHONY : FindLocation.cpp.s
+MultiModalModule.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/MultiModalModule.cpp.s
+.PHONY : MultiModalModule.cpp.s
 
-LookAtLocation.o: LookAtLocation.cpp.o
+MultiModalThread.o: MultiModalThread.cpp.o
 
-.PHONY : LookAtLocation.o
+.PHONY : MultiModalThread.o
 
 # target to build an object file
-LookAtLocation.cpp.o:
-	$(MAKE) -f CMakeFiles/LookAtLocation.dir/build.make CMakeFiles/LookAtLocation.dir/LookAtLocation.cpp.o
-.PHONY : LookAtLocation.cpp.o
+MultiModalThread.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/MultiModalThread.cpp.o
+.PHONY : MultiModalThread.cpp.o
 
-LookAtLocation.i: LookAtLocation.cpp.i
+MultiModalThread.i: MultiModalThread.cpp.i
 
-.PHONY : LookAtLocation.i
+.PHONY : MultiModalThread.i
 
 # target to preprocess a source file
-LookAtLocation.cpp.i:
-	$(MAKE) -f CMakeFiles/LookAtLocation.dir/build.make CMakeFiles/LookAtLocation.dir/LookAtLocation.cpp.i
-.PHONY : LookAtLocation.cpp.i
+MultiModalThread.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/MultiModalThread.cpp.i
+.PHONY : MultiModalThread.cpp.i
 
-LookAtLocation.s: LookAtLocation.cpp.s
+MultiModalThread.s: MultiModalThread.cpp.s
 
-.PHONY : LookAtLocation.s
+.PHONY : MultiModalThread.s
 
 # target to generate assembly for a file
-LookAtLocation.cpp.s:
-	$(MAKE) -f CMakeFiles/LookAtLocation.dir/build.make CMakeFiles/LookAtLocation.dir/LookAtLocation.cpp.s
-.PHONY : LookAtLocation.cpp.s
+MultiModalThread.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/MultiModalThread.cpp.s
+.PHONY : MultiModalThread.cpp.s
 
-ObjectDetection.o: ObjectDetection.cpp.o
+main.o: main.cpp.o
 
-.PHONY : ObjectDetection.o
+.PHONY : main.o
 
 # target to build an object file
-ObjectDetection.cpp.o:
-	$(MAKE) -f CMakeFiles/ObjectDetection.dir/build.make CMakeFiles/ObjectDetection.dir/ObjectDetection.cpp.o
-.PHONY : ObjectDetection.cpp.o
+main.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-ObjectDetection.i: ObjectDetection.cpp.i
+main.i: main.cpp.i
 
-.PHONY : ObjectDetection.i
-
-# target to preprocess a source file
-ObjectDetection.cpp.i:
-	$(MAKE) -f CMakeFiles/ObjectDetection.dir/build.make CMakeFiles/ObjectDetection.dir/ObjectDetection.cpp.i
-.PHONY : ObjectDetection.cpp.i
-
-ObjectDetection.s: ObjectDetection.cpp.s
-
-.PHONY : ObjectDetection.s
-
-# target to generate assembly for a file
-ObjectDetection.cpp.s:
-	$(MAKE) -f CMakeFiles/ObjectDetection.dir/build.make CMakeFiles/ObjectDetection.dir/ObjectDetection.cpp.s
-.PHONY : ObjectDetection.cpp.s
-
-OpenNI2SkeletonData.o: OpenNI2SkeletonData.cpp.o
-
-.PHONY : OpenNI2SkeletonData.o
-
-# target to build an object file
-OpenNI2SkeletonData.cpp.o:
-	$(MAKE) -f CMakeFiles/OpenNI2SkeletonData.dir/build.make CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.o
-.PHONY : OpenNI2SkeletonData.cpp.o
-
-OpenNI2SkeletonData.i: OpenNI2SkeletonData.cpp.i
-
-.PHONY : OpenNI2SkeletonData.i
+.PHONY : main.i
 
 # target to preprocess a source file
-OpenNI2SkeletonData.cpp.i:
-	$(MAKE) -f CMakeFiles/OpenNI2SkeletonData.dir/build.make CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.i
-.PHONY : OpenNI2SkeletonData.cpp.i
+main.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-OpenNI2SkeletonData.s: OpenNI2SkeletonData.cpp.s
+main.s: main.cpp.s
 
-.PHONY : OpenNI2SkeletonData.s
-
-# target to generate assembly for a file
-OpenNI2SkeletonData.cpp.s:
-	$(MAKE) -f CMakeFiles/OpenNI2SkeletonData.dir/build.make CMakeFiles/OpenNI2SkeletonData.dir/OpenNI2SkeletonData.cpp.s
-.PHONY : OpenNI2SkeletonData.cpp.s
-
-OpencvCamera.o: OpencvCamera.cpp.o
-
-.PHONY : OpencvCamera.o
-
-# target to build an object file
-OpencvCamera.cpp.o:
-	$(MAKE) -f CMakeFiles/OpencvCamera.dir/build.make CMakeFiles/OpencvCamera.dir/OpencvCamera.cpp.o
-.PHONY : OpencvCamera.cpp.o
-
-OpencvCamera.i: OpencvCamera.cpp.i
-
-.PHONY : OpencvCamera.i
-
-# target to preprocess a source file
-OpencvCamera.cpp.i:
-	$(MAKE) -f CMakeFiles/OpencvCamera.dir/build.make CMakeFiles/OpencvCamera.dir/OpencvCamera.cpp.i
-.PHONY : OpencvCamera.cpp.i
-
-OpencvCamera.s: OpencvCamera.cpp.s
-
-.PHONY : OpencvCamera.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-OpencvCamera.cpp.s:
-	$(MAKE) -f CMakeFiles/OpencvCamera.dir/build.make CMakeFiles/OpencvCamera.dir/OpencvCamera.cpp.s
-.PHONY : OpencvCamera.cpp.s
-
-OpencvGrabber.o: OpencvGrabber.cpp.o
-
-.PHONY : OpencvGrabber.o
-
-# target to build an object file
-OpencvGrabber.cpp.o:
-	$(MAKE) -f CMakeFiles/OpencvGrabber.dir/build.make CMakeFiles/OpencvGrabber.dir/OpencvGrabber.cpp.o
-.PHONY : OpencvGrabber.cpp.o
-
-OpencvGrabber.i: OpencvGrabber.cpp.i
-
-.PHONY : OpencvGrabber.i
-
-# target to preprocess a source file
-OpencvGrabber.cpp.i:
-	$(MAKE) -f CMakeFiles/OpencvGrabber.dir/build.make CMakeFiles/OpencvGrabber.dir/OpencvGrabber.cpp.i
-.PHONY : OpencvGrabber.cpp.i
-
-OpencvGrabber.s: OpencvGrabber.cpp.s
-
-.PHONY : OpencvGrabber.s
-
-# target to generate assembly for a file
-OpencvGrabber.cpp.s:
-	$(MAKE) -f CMakeFiles/OpencvGrabber.dir/build.make CMakeFiles/OpencvGrabber.dir/OpencvGrabber.cpp.s
-.PHONY : OpencvGrabber.cpp.s
+main.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -357,31 +211,17 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... OpencvCamera"
-	@echo "... OpencvGrabber"
-	@echo "... OpenNI2SkeletonData"
-	@echo "... ObjectDetection"
 	@echo "... edit_cache"
-	@echo "... FindLocation"
-	@echo "... LookAtLocation"
-	@echo "... FindLocation.o"
-	@echo "... FindLocation.i"
-	@echo "... FindLocation.s"
-	@echo "... LookAtLocation.o"
-	@echo "... LookAtLocation.i"
-	@echo "... LookAtLocation.s"
-	@echo "... ObjectDetection.o"
-	@echo "... ObjectDetection.i"
-	@echo "... ObjectDetection.s"
-	@echo "... OpenNI2SkeletonData.o"
-	@echo "... OpenNI2SkeletonData.i"
-	@echo "... OpenNI2SkeletonData.s"
-	@echo "... OpencvCamera.o"
-	@echo "... OpencvCamera.i"
-	@echo "... OpencvCamera.s"
-	@echo "... OpencvGrabber.o"
-	@echo "... OpencvGrabber.i"
-	@echo "... OpencvGrabber.s"
+	@echo "... main"
+	@echo "... MultiModalModule.o"
+	@echo "... MultiModalModule.i"
+	@echo "... MultiModalModule.s"
+	@echo "... MultiModalThread.o"
+	@echo "... MultiModalThread.i"
+	@echo "... MultiModalThread.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 

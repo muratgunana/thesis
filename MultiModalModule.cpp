@@ -27,7 +27,7 @@
 #include <stdio.h>
 #include <yarp/os/Vocab.h>
 
-#include <MultiModalModule.h>
+#include "MultiModalModule.h"
 #include <yarp/os/LogStream.h>
 #include <yarp/sig/ImageDraw.h>
 #include <yarp/os/Time.h>
@@ -56,19 +56,19 @@ bool MultiModalModule::configure(yarp::os::ResourceFinder &rf) {
 
     yInfo()<<"Configuring the codedc module...";
 
-    threadsCount = rf.check("threads", Value(1)).asInt();
-    if(threadsCount <1) {
-        yError()<< "Number of threads should be >= 1)";
-        return false;
-    }
+    //threadsCount = rf.check("threads", Value(1)).asInt();
+    //if(threadsCount <1) {
+       // yError()<< "Number of threads should be >= 1)";
+        //return false;
+    //}
 
 
     // create and start the object detector and pointer threads
     objectDetector = new MultiModalThread();
-    objectDetector.start();
+    objectDetector->start();
 
     objectPointer = new MultiModalThread();
-    objectPointer.start();
+    objectPointer->start();
 
     count=0;
     // optional, attach a port to the module
@@ -99,52 +99,29 @@ bool MultiModalModule::configure(yarp::os::ResourceFinder &rf) {
 
 
 double MultiModalModule::getPeriod() {
-    return 0.0;
+  return 0.0;
 }
 
 
 bool MultiModalModule::updateModule() {    
-
-    // create an empty image
-    ImageOf<PixelRgb>& img = imagePort.prepare();
-    img.resize(imgWidth, imgHeight);
-
-    double t1 = Time::now();
-
-    // calling paint and running the threads
-    // devide image regions for each thread
-    for(int i=0; i<threadsCount; i++) {
-        int xi = i * imgWidth/threadsCount;
-        painters[i]->paint(img, xi, 0, imgWidth/threadsCount, imgHeight);
-    }
-
-    // waiting for the painter to do their jobs
-    for(int i=0; i<threadsCount; i++)
-        painters[i]->wait();
-
-    // print the total proccessing time
-    yInfo()<<"Processing time "<<(Time::now()-t1)*1000.0<<"ms";
-
-    // write the image to the port
-    imagePort.write();
-    return true;
+  count++;
+  cout << "[" << count << "]" << " updateModule..." << endl;
+  return true;
 }
 
 
 bool MultiModalModule::interruptModule() {
-    for(int i=0; i<painters.size(); i++) {
-        painters[i]->interrupt();
-    }
-    return true;
+  objectDetector->interrupt();
+  objectPointer->interrupt();
+  return true;
 }
 
 
 bool MultiModalModule::close() {
-    yInfo()<<"Closing MultiModalModule";
-    for(int i=0; i<painters.size(); i++) {
-        painters[i]->stop();
-        delete painters[i];
-    }
-    imagePort.close();
-    return true;
+  objectDetector->stop();
+  delete objectDetector;
+  objectPointer->stop();
+  delete objectPointer;
+  imagePort.close();
+  return true;
 }
