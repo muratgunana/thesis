@@ -17,7 +17,7 @@ public:
   /**
    * @brief detects the circles and particular colors from the image frame,
    */
-  void objectDetection(yarp::sig::ImageOf<yarp::sig::PixelRgb>& image);
+  void objectDetection(yarp::sig::ImageOf<yarp::sig::PixelRgb>* image);
 
   /**
    * @brief extracts skeleton data from 3D and handles collision detection in regard to objects.

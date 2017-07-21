@@ -79,6 +79,9 @@ CMakeFiles/main.dir/MultiModalModule.cpp.o: /usr/local/include/yarp/sig/api.h
 
 CMakeFiles/main.dir/MultiModalThread.cpp.o: ../MultiModalThread.cpp
 CMakeFiles/main.dir/MultiModalThread.cpp.o: ../MultiModalThread.h
+CMakeFiles/main.dir/MultiModalThread.cpp.o: /usr/include/opencv/cv.h
+CMakeFiles/main.dir/MultiModalThread.cpp.o: /usr/include/opencv/cvaux.h
+CMakeFiles/main.dir/MultiModalThread.cpp.o: /usr/include/opencv/highgui.h
 CMakeFiles/main.dir/MultiModalThread.cpp.o: /usr/local/include/yarp/conf/api.h
 CMakeFiles/main.dir/MultiModalThread.cpp.o: /usr/local/include/yarp/conf/compiler.h
 CMakeFiles/main.dir/MultiModalThread.cpp.o: /usr/local/include/yarp/conf/numeric.h
@@ -118,14 +121,10 @@ CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/dev/Drivers.h
 CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/dev/GazeControl.h
 CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/dev/PolyDriver.h
 CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/dev/api.h
-CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/math/Math.h
-CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/math/Quaternion.h
-CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/math/api.h
 CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/os/AbstractContactable.h
 CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/os/Bottle.h
 CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/os/BufferedPort.h
 CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/os/Bytes.h
-CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/os/Clock.h
 CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/os/ConnectionReader.h
 CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/os/ConnectionWriter.h
 CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/os/ConstString.h
@@ -163,19 +162,12 @@ CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/os/Searchable.h
 CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/os/Semaphore.h
 CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/os/Stamp.h
 CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/os/Thread.h
-CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/os/Time.h
 CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/os/Type.h
 CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/os/UnbufferedContactable.h
 CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/os/Value.h
 CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/os/Vocab.h
 CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/os/api.h
 CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/sig/Image.h
-CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/sig/ImageDraw.h
-CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/sig/ImageFile.h
-CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/sig/Matrix.h
-CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/sig/Sound.h
-CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/sig/SoundFile.h
 CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/sig/Vector.h
-CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/sig/all.h
 CMakeFiles/main.dir/main.cpp.o: /usr/local/include/yarp/sig/api.h
 
