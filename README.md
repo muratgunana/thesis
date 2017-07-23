@@ -25,7 +25,7 @@ This is an ongoing project for my master thesis that is to build a framework in 
 
 # Further Info
 
-Please note that there are some experimental code within the project. The main files are `OpenNI2SkeletonData.cpp`, `OpencvGrabber.cpp` and `OpencvCamera.cpp`.
+Please note that there are some experimental code within the project. The main files are `CollisionDetectionThread.*`, `ObjectDetectionThread.*`,`MultiModalModule.*` and `main.cpp`.
 
 # Update
 
