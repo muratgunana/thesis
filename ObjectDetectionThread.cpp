@@ -9,6 +9,7 @@
 
 #include "ObjectDetectionThread.h"
 #include <yarp/os/LogStream.h>
+#include <yarp/os/Network.h>
 #include <yarp/sig/Image.h>
 #include <yarp/os/Time.h>
 
@@ -27,14 +28,21 @@ void ObjectDetectionThread::run() {
   }
 }
 
+bool ObjectDetectionThread::threadInit() {
+
+  // Open the port and connect OPenNI RGB port to stream.
+  this->imagePort.open("/imagergb");
+  Network::connect("/OpenNI2/imageFrame:o","/imagergb");
+ 
+ return true;
+}
+
 void ObjectDetectionThread::objectDetection() {
-  //ObjectDetectionThread::image = &image;
   
-  printf("Copying YARP image to an OpenCV/IPL image\n");
   ImageOf<PixelRgb> *image;
   while (cv::waitKey(27) != 'Esc') {
     
-  std::cout << "Image shows ..." << std::endl;
+    printf("Object color code: %d\n", this->colorCode);
     cv::Mat orig_image;
     image = imagePort.read();
     IplImage *cvImage = cvCreateImage(cvSize(image->width(),  
@@ -52,37 +60,37 @@ void ObjectDetectionThread::objectDetection() {
     cv::cvtColor(bgr_image, hsv_image, cv::COLOR_BGR2HSV);
  
     // Threshold the HSV image, keep only the red pixels
-    cv::Mat lower_red_hue_range;
-    cv::Mat upper_red_hue_range;
-    cv::inRange(hsv_image, cv::Scalar(0, 100, 100), cv::Scalar(10, 255, 255), lower_red_hue_range);
-    cv::inRange(hsv_image, cv::Scalar(160, 100, 100), cv::Scalar(179, 255, 255), upper_red_hue_range);
+    cv::Mat lower_hue_range;
+    cv::Mat upper_hue_range;
+    cv::inRange(hsv_image, cv::Scalar(0, 100, 100), cv::Scalar(10, 255, 255), lower_hue_range);
+    cv::inRange(hsv_image, cv::Scalar(160, 100, 100), cv::Scalar(179, 255, 255), upper_hue_range);
 
     // Combine the above two images
-    cv::Mat red_hue_image;
-    cv::addWeighted(lower_red_hue_range, 1.0, upper_red_hue_range, 1.0, 0.0, red_hue_image);
-    cv::GaussianBlur(red_hue_image, red_hue_image, cv::Size(9, 9), 2, 2);
+    cv::Mat hue_image;
+    cv::addWeighted(lower_hue_range, 1.0, upper_hue_range, 1.0, 0.0, hue_image);
+    cv::GaussianBlur(hue_image, hue_image, cv::Size(9, 9), 2, 2);
 
     // Use the Hough transform to detect circles in the combined threshold image
     std::vector<cv::Vec3f> circles;
-    cv::HoughCircles(red_hue_image, circles, CV_HOUGH_GRADIENT, 1, red_hue_image.rows/8, 200, 40, 0, 0);
+    cv::HoughCircles(hue_image, circles, CV_HOUGH_GRADIENT, 1, hue_image.rows/8, 200, 40, 0, 0);
 
     // Loop over all detected circles and outline them on the original image
     //if (color_offset != 0) {
-      for(size_t current_circle = 0; current_circle < circles.size(); ++current_circle) {
-        cv::Point center(cvRound(circles[current_circle][0]), cvRound(circles[current_circle][1]));
-        int radius = cvRound(circles[current_circle][2]);
+    for(size_t current_circle = 0; current_circle < circles.size(); ++current_circle) {
+      cv::Point center(cvRound(circles[current_circle][0]), cvRound(circles[current_circle][1]));
+      int radius = cvRound(circles[current_circle][2]);
 
-        cv::circle(orig_image, center, radius, cv::Scalar(0, 255, 0), 5);
-      }
-   // }
+      cv::circle(orig_image, center, radius, cv::Scalar(0, 255, 0), 5);
+    }
+    // }
 
     // Show images
     cv::namedWindow("Threshold lower image", cv::WINDOW_AUTOSIZE);
-    cv::imshow("Threshold lower image", lower_red_hue_range);
+    cv::imshow("Threshold lower image", lower_hue_range);
     cv::namedWindow("Threshold upper image", cv::WINDOW_AUTOSIZE);
-    cv::imshow("Threshold upper image", upper_red_hue_range);
+    cv::imshow("Threshold upper image", upper_hue_range);
     cv::namedWindow("Combined threshold images", cv::WINDOW_AUTOSIZE);
-    cv::imshow("Combined threshold images", red_hue_image);
+    cv::imshow("Combined threshold images", hue_image);
     cv::namedWindow("Detected red circles on the input image", cv::WINDOW_AUTOSIZE);
     cv::imshow("Detected red circles on the input image", orig_image);
     //return true; 
@@ -98,4 +106,12 @@ void ObjectDetectionThread::wait() {
 void ObjectDetectionThread::interrupt() {
   interrupted = true;
   semStart.post();
+}
+
+void ObjectDetectionThread::setColorCode(int colorCode) {
+  this->colorCode = colorCode;
+}
+
+int ObjectDetectionThread::getColorCode() {
+  return this->colorCode;
 }

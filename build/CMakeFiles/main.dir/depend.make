@@ -164,14 +164,17 @@ CMakeFiles/main.dir/ObjectDetectionThread.cpp.o: /usr/local/include/yarp/os/Conn
 CMakeFiles/main.dir/ObjectDetectionThread.cpp.o: /usr/local/include/yarp/os/ConnectionWriter.h
 CMakeFiles/main.dir/ObjectDetectionThread.cpp.o: /usr/local/include/yarp/os/ConstString.h
 CMakeFiles/main.dir/ObjectDetectionThread.cpp.o: /usr/local/include/yarp/os/Contact.h
+CMakeFiles/main.dir/ObjectDetectionThread.cpp.o: /usr/local/include/yarp/os/ContactStyle.h
 CMakeFiles/main.dir/ObjectDetectionThread.cpp.o: /usr/local/include/yarp/os/Contactable.h
 CMakeFiles/main.dir/ObjectDetectionThread.cpp.o: /usr/local/include/yarp/os/LocalReader.h
 CMakeFiles/main.dir/ObjectDetectionThread.cpp.o: /usr/local/include/yarp/os/Log.h
 CMakeFiles/main.dir/ObjectDetectionThread.cpp.o: /usr/local/include/yarp/os/LogStream.h
 CMakeFiles/main.dir/ObjectDetectionThread.cpp.o: /usr/local/include/yarp/os/Mutex.h
+CMakeFiles/main.dir/ObjectDetectionThread.cpp.o: /usr/local/include/yarp/os/NameStore.h
 CMakeFiles/main.dir/ObjectDetectionThread.cpp.o: /usr/local/include/yarp/os/NestedContact.h
 CMakeFiles/main.dir/ObjectDetectionThread.cpp.o: /usr/local/include/yarp/os/NetInt32.h
 CMakeFiles/main.dir/ObjectDetectionThread.cpp.o: /usr/local/include/yarp/os/NetUint16.h
+CMakeFiles/main.dir/ObjectDetectionThread.cpp.o: /usr/local/include/yarp/os/Network.h
 CMakeFiles/main.dir/ObjectDetectionThread.cpp.o: /usr/local/include/yarp/os/Os.h
 CMakeFiles/main.dir/ObjectDetectionThread.cpp.o: /usr/local/include/yarp/os/Port.h
 CMakeFiles/main.dir/ObjectDetectionThread.cpp.o: /usr/local/include/yarp/os/PortReader.h
@@ -182,6 +185,7 @@ CMakeFiles/main.dir/ObjectDetectionThread.cpp.o: /usr/local/include/yarp/os/Port
 CMakeFiles/main.dir/ObjectDetectionThread.cpp.o: /usr/local/include/yarp/os/PortWriterBuffer.h
 CMakeFiles/main.dir/ObjectDetectionThread.cpp.o: /usr/local/include/yarp/os/Portable.h
 CMakeFiles/main.dir/ObjectDetectionThread.cpp.o: /usr/local/include/yarp/os/Property.h
+CMakeFiles/main.dir/ObjectDetectionThread.cpp.o: /usr/local/include/yarp/os/QosStyle.h
 CMakeFiles/main.dir/ObjectDetectionThread.cpp.o: /usr/local/include/yarp/os/Searchable.h
 CMakeFiles/main.dir/ObjectDetectionThread.cpp.o: /usr/local/include/yarp/os/Semaphore.h
 CMakeFiles/main.dir/ObjectDetectionThread.cpp.o: /usr/local/include/yarp/os/Thread.h

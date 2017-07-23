@@ -103,6 +103,8 @@ ObjectDetectionThread.h
 /home/muri/thesis/ObjectDetectionThread.h
 yarp/os/LogStream.h
 -
+yarp/os/Network.h
+-
 yarp/sig/Image.h
 -
 yarp/os/Time.h

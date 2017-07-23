@@ -17,7 +17,12 @@ public:
    * @brief run thraed main function.
    */
   virtual void run();
-
+  
+  /**
+   * @brief iniitialize thread.
+   */
+  virtual bool threadInit();
+  
   /**
    * @brief detects the circles and particular colors from the image frame,
    */
@@ -32,10 +37,21 @@ public:
    * @brief interrupt any ongoing process or waiting thread.
    */ 
   void interrupt();
+  
+  /**
+   * @brief setter for color_code property.
+   */
+  void setColorCode(int colorCode);
+  
+  /**
+   * @brief getter for color_code property.
+   */
+  int getColorCode();
 
-//private:
+private:
   BufferedPort<ImageOf<PixelRgb> > imagePort;
   bool interrupted;
+  int colorCode = 0;
   yarp::os::Semaphore semStart;
   yarp::os::Semaphore semDone;    
 };

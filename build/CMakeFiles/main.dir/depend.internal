@@ -165,14 +165,17 @@ CMakeFiles/main.dir/ObjectDetectionThread.cpp.o
  /usr/local/include/yarp/os/ConnectionWriter.h
  /usr/local/include/yarp/os/ConstString.h
  /usr/local/include/yarp/os/Contact.h
+ /usr/local/include/yarp/os/ContactStyle.h
  /usr/local/include/yarp/os/Contactable.h
  /usr/local/include/yarp/os/LocalReader.h
  /usr/local/include/yarp/os/Log.h
  /usr/local/include/yarp/os/LogStream.h
  /usr/local/include/yarp/os/Mutex.h
+ /usr/local/include/yarp/os/NameStore.h
  /usr/local/include/yarp/os/NestedContact.h
  /usr/local/include/yarp/os/NetInt32.h
  /usr/local/include/yarp/os/NetUint16.h
+ /usr/local/include/yarp/os/Network.h
  /usr/local/include/yarp/os/Os.h
  /usr/local/include/yarp/os/Port.h
  /usr/local/include/yarp/os/PortReader.h
@@ -183,6 +186,7 @@ CMakeFiles/main.dir/ObjectDetectionThread.cpp.o
  /usr/local/include/yarp/os/PortWriterBuffer.h
  /usr/local/include/yarp/os/Portable.h
  /usr/local/include/yarp/os/Property.h
+ /usr/local/include/yarp/os/QosStyle.h
  /usr/local/include/yarp/os/Searchable.h
  /usr/local/include/yarp/os/Semaphore.h
  /usr/local/include/yarp/os/Thread.h

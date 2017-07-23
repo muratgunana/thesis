@@ -17,10 +17,10 @@
 #include <yarp/dev/GazeControl.h>
 #include <yarp/dev/PolyDriver.h>
 
-#define COLOR_CODE_OFFSET 0;
-#define RED               1;
-#define PURPLE            2;
-#define GREEN             3;
+#define COLOR_CODE_OFFSET 0
+#define RED               1
+#define PURPLE            2
+#define GREEN             3
 
 using namespace yarp::os;
 using namespace yarp::dev;
@@ -37,6 +37,11 @@ public:
    * @brief run thraed main function.
    */
   virtual void run();
+  
+  /**
+   * @brief iniitialize thread.
+   */
+  virtual bool threadInit();
 
   /**
    * @brief extracts skeleton data from 3D and handles collision detection in regard to objects.
@@ -47,6 +52,18 @@ public:
    * @brief show the bottle data.
    */
   Bottle showBottle(Bottle& bottle, int indentation);
+  
+  /**
+   * @brief setter for color_code property.
+   */
+  void setColorCode(int colorCode);
+
+  /**
+   * @brief getter for color_code property.
+   */
+  int getColorCode();
+
+
   /**
    * @brief suspends the calling thread until the current thread execution finishes.
    */
@@ -57,11 +74,11 @@ public:
    */ 
   void interrupt();
 
-//private:
+private:
   PolyDriver clientGaze;
   IGazeControl *igaze;
   BufferedPort<Bottle> skeletonPort;
-  int color_code = COLOR_CODE_OFFSET;
+  int colorCode = COLOR_CODE_OFFSET;
   bool interrupted;
   yarp::os::Semaphore semStart;
   yarp::os::Semaphore semDone;    
