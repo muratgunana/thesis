@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/robotics/thesis/Thread.cpp
+/home/muri/thesis/Thread.cpp
 stdio.h
 -
 string

@@ -7,43 +7,36 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/objdetect/objdetect.hpp>
 
-#include "MultiModalThread.h"
+#include "ObjectDetectionThread.h"
 #include <yarp/os/LogStream.h>
 #include <yarp/sig/Image.h>
-using namespace yarp::os;
+#include <yarp/os/Time.h>
+
 using namespace yarp::sig;
 
-MultiModalThread::MultiModalThread()
+ObjectDetectionThread::ObjectDetectionThread()
   : semStart(0), semDone(0), interrupted(false) { }
 
-MultiModalThread::~MultiModalThread() { }
+ObjectDetectionThread::~ObjectDetectionThread() { }
 
-void MultiModalThread::run() {
-  // Loop until the thread is running.
-  //while (!isStopping()) {
-    // Wait to start the processing.
-    //semStart.wait();
-    //if (interrupted) {
-      //semDone.post();
-      //return;
-    //}
-    // @TODO: Think of any possible image processing.
-    
-    // Let other know the thread already processed.
-    //semDone.post();
-  //}
+void ObjectDetectionThread::run() {
+  while (!isStopping()) {
+    printf("Hello from thread2\n");
+    ObjectDetectionThread::objectDetection();
+    Time::delay(0);
+  }
 }
 
-void MultiModalThread::objectDetection(yarp::sig::ImageOf<yarp::sig::PixelRgb>* image) {
-  //MultiModalThread::image = &image;
+void ObjectDetectionThread::objectDetection() {
+  //ObjectDetectionThread::image = &image;
   
   printf("Copying YARP image to an OpenCV/IPL image\n");
-    //ImageOf<PixelRgb> *image;
+  ImageOf<PixelRgb> *image;
   while (cv::waitKey(27) != 'Esc') {
     
   std::cout << "Image shows ..." << std::endl;
     cv::Mat orig_image;
-    //image = imagePort.read();
+    image = imagePort.read();
     IplImage *cvImage = cvCreateImage(cvSize(image->width(),  
                                              image->height()), 
                                       IPL_DEPTH_8U, 3 );
@@ -98,16 +91,11 @@ void MultiModalThread::objectDetection(yarp::sig::ImageOf<yarp::sig::PixelRgb>* 
   }
 }
 
-void MultiModalThread::objectPointer() {
-  std::cout << "Hello from the pointer" << std::endl;
-  //semStart.post();
-}
-
-void MultiModalThread::wait() {
+void ObjectDetectionThread::wait() {
   semDone.wait();
 }
 
-void MultiModalThread::interrupt() {
+void ObjectDetectionThread::interrupt() {
   interrupted = true;
   semStart.post();
 }

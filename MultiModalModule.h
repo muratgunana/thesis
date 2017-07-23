@@ -5,7 +5,11 @@
 #include <yarp/os/BufferedPort.h>
 #include <yarp/os/Bottle.h>
 #include <yarp/sig/Image.h>
-#include "MultiModalThread.h"
+#include "ObjectDetectionThread.h"
+#include "CollisionDetectionThread.h"
+
+using namespace yarp::os;
+using namespace yarp::sig;
 
 class MultiModalModule : public yarp::os::RFModule {
 public:
@@ -19,8 +23,6 @@ public:
 
   virtual bool updateModule();
 
-  yarp::os::Bottle showBottle(yarp::os::Bottle& anUnknownBottle, int indentation = 0);
-
   virtual bool interruptModule();
 
   virtual bool close();
@@ -29,11 +31,7 @@ private:
 
   double period;
   int threadCount;
-  yarp::os::BufferedPort<yarp::sig::ImageOf<yarp::sig::PixelRgb> > imagePort;
-  MultiModalThread *objectDetector, *objectPointer;
-  yarp::dev::PolyDriver clientGaze;
-  yarp::dev::IGazeControl *igaze;
-  yarp::os::BufferedPort<yarp::os::Bottle> skeletonPort;
+  ObjectDetectionThread *objectThread;
+  CollisionDetectionThread *collisionThread;
   int count;
-  int color_code = 0;
 };

@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/robotics/thesis/Thread.cpp" "/home/robotics/thesis/build/CMakeFiles/thread.dir/Thread.cpp.o"
+  "/home/muri/thesis/Thread.cpp" "/home/muri/thesis/build/CMakeFiles/thread.dir/Thread.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

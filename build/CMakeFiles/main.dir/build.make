@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/robotics/thesis
+CMAKE_SOURCE_DIR = /home/muri/thesis
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/robotics/thesis/build
+CMAKE_BINARY_DIR = /home/muri/thesis/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/main.dir/depend.make
@@ -57,42 +57,66 @@ include CMakeFiles/main.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/main.dir/flags.make
 
-CMakeFiles/main.dir/MultiModalThread.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/MultiModalThread.cpp.o: ../MultiModalThread.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robotics/thesis/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/MultiModalThread.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/MultiModalThread.cpp.o -c /home/robotics/thesis/MultiModalThread.cpp
+CMakeFiles/main.dir/CollisionDetectionThread.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/CollisionDetectionThread.cpp.o: ../CollisionDetectionThread.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/muri/thesis/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/CollisionDetectionThread.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/CollisionDetectionThread.cpp.o -c /home/muri/thesis/CollisionDetectionThread.cpp
 
-CMakeFiles/main.dir/MultiModalThread.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/MultiModalThread.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/robotics/thesis/MultiModalThread.cpp > CMakeFiles/main.dir/MultiModalThread.cpp.i
+CMakeFiles/main.dir/CollisionDetectionThread.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/CollisionDetectionThread.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/muri/thesis/CollisionDetectionThread.cpp > CMakeFiles/main.dir/CollisionDetectionThread.cpp.i
 
-CMakeFiles/main.dir/MultiModalThread.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/MultiModalThread.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/robotics/thesis/MultiModalThread.cpp -o CMakeFiles/main.dir/MultiModalThread.cpp.s
+CMakeFiles/main.dir/CollisionDetectionThread.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/CollisionDetectionThread.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/muri/thesis/CollisionDetectionThread.cpp -o CMakeFiles/main.dir/CollisionDetectionThread.cpp.s
 
-CMakeFiles/main.dir/MultiModalThread.cpp.o.requires:
+CMakeFiles/main.dir/CollisionDetectionThread.cpp.o.requires:
 
-.PHONY : CMakeFiles/main.dir/MultiModalThread.cpp.o.requires
+.PHONY : CMakeFiles/main.dir/CollisionDetectionThread.cpp.o.requires
 
-CMakeFiles/main.dir/MultiModalThread.cpp.o.provides: CMakeFiles/main.dir/MultiModalThread.cpp.o.requires
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/MultiModalThread.cpp.o.provides.build
-.PHONY : CMakeFiles/main.dir/MultiModalThread.cpp.o.provides
+CMakeFiles/main.dir/CollisionDetectionThread.cpp.o.provides: CMakeFiles/main.dir/CollisionDetectionThread.cpp.o.requires
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/CollisionDetectionThread.cpp.o.provides.build
+.PHONY : CMakeFiles/main.dir/CollisionDetectionThread.cpp.o.provides
 
-CMakeFiles/main.dir/MultiModalThread.cpp.o.provides.build: CMakeFiles/main.dir/MultiModalThread.cpp.o
+CMakeFiles/main.dir/CollisionDetectionThread.cpp.o.provides.build: CMakeFiles/main.dir/CollisionDetectionThread.cpp.o
+
+
+CMakeFiles/main.dir/ObjectDetectionThread.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/ObjectDetectionThread.cpp.o: ../ObjectDetectionThread.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/muri/thesis/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/ObjectDetectionThread.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/ObjectDetectionThread.cpp.o -c /home/muri/thesis/ObjectDetectionThread.cpp
+
+CMakeFiles/main.dir/ObjectDetectionThread.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/ObjectDetectionThread.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/muri/thesis/ObjectDetectionThread.cpp > CMakeFiles/main.dir/ObjectDetectionThread.cpp.i
+
+CMakeFiles/main.dir/ObjectDetectionThread.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/ObjectDetectionThread.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/muri/thesis/ObjectDetectionThread.cpp -o CMakeFiles/main.dir/ObjectDetectionThread.cpp.s
+
+CMakeFiles/main.dir/ObjectDetectionThread.cpp.o.requires:
+
+.PHONY : CMakeFiles/main.dir/ObjectDetectionThread.cpp.o.requires
+
+CMakeFiles/main.dir/ObjectDetectionThread.cpp.o.provides: CMakeFiles/main.dir/ObjectDetectionThread.cpp.o.requires
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/ObjectDetectionThread.cpp.o.provides.build
+.PHONY : CMakeFiles/main.dir/ObjectDetectionThread.cpp.o.provides
+
+CMakeFiles/main.dir/ObjectDetectionThread.cpp.o.provides.build: CMakeFiles/main.dir/ObjectDetectionThread.cpp.o
 
 
 CMakeFiles/main.dir/MultiModalModule.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/MultiModalModule.cpp.o: ../MultiModalModule.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robotics/thesis/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/MultiModalModule.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/MultiModalModule.cpp.o -c /home/robotics/thesis/MultiModalModule.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/muri/thesis/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/MultiModalModule.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/MultiModalModule.cpp.o -c /home/muri/thesis/MultiModalModule.cpp
 
 CMakeFiles/main.dir/MultiModalModule.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/MultiModalModule.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/robotics/thesis/MultiModalModule.cpp > CMakeFiles/main.dir/MultiModalModule.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/muri/thesis/MultiModalModule.cpp > CMakeFiles/main.dir/MultiModalModule.cpp.i
 
 CMakeFiles/main.dir/MultiModalModule.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/MultiModalModule.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/robotics/thesis/MultiModalModule.cpp -o CMakeFiles/main.dir/MultiModalModule.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/muri/thesis/MultiModalModule.cpp -o CMakeFiles/main.dir/MultiModalModule.cpp.s
 
 CMakeFiles/main.dir/MultiModalModule.cpp.o.requires:
 
@@ -107,16 +131,16 @@ CMakeFiles/main.dir/MultiModalModule.cpp.o.provides.build: CMakeFiles/main.dir/M
 
 CMakeFiles/main.dir/main.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robotics/thesis/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/main.cpp.o -c /home/robotics/thesis/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/muri/thesis/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/main.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/main.cpp.o -c /home/muri/thesis/main.cpp
 
 CMakeFiles/main.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/robotics/thesis/main.cpp > CMakeFiles/main.dir/main.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/muri/thesis/main.cpp > CMakeFiles/main.dir/main.cpp.i
 
 CMakeFiles/main.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/robotics/thesis/main.cpp -o CMakeFiles/main.dir/main.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/muri/thesis/main.cpp -o CMakeFiles/main.dir/main.cpp.s
 
 CMakeFiles/main.dir/main.cpp.o.requires:
 
@@ -131,14 +155,16 @@ CMakeFiles/main.dir/main.cpp.o.provides.build: CMakeFiles/main.dir/main.cpp.o
 
 # Object files for target main
 main_OBJECTS = \
-"CMakeFiles/main.dir/MultiModalThread.cpp.o" \
+"CMakeFiles/main.dir/CollisionDetectionThread.cpp.o" \
+"CMakeFiles/main.dir/ObjectDetectionThread.cpp.o" \
 "CMakeFiles/main.dir/MultiModalModule.cpp.o" \
 "CMakeFiles/main.dir/main.cpp.o"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
 
-main: CMakeFiles/main.dir/MultiModalThread.cpp.o
+main: CMakeFiles/main.dir/CollisionDetectionThread.cpp.o
+main: CMakeFiles/main.dir/ObjectDetectionThread.cpp.o
 main: CMakeFiles/main.dir/MultiModalModule.cpp.o
 main: CMakeFiles/main.dir/main.cpp.o
 main: CMakeFiles/main.dir/build.make
@@ -167,7 +193,7 @@ main: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.2.4.9
 main: /usr/lib/x86_64-linux-gnu/libopencv_flann.so.2.4.9
 main: /usr/lib/x86_64-linux-gnu/libopencv_core.so.2.4.9
 main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/robotics/thesis/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/muri/thesis/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -175,7 +201,8 @@ CMakeFiles/main.dir/build: main
 
 .PHONY : CMakeFiles/main.dir/build
 
-CMakeFiles/main.dir/requires: CMakeFiles/main.dir/MultiModalThread.cpp.o.requires
+CMakeFiles/main.dir/requires: CMakeFiles/main.dir/CollisionDetectionThread.cpp.o.requires
+CMakeFiles/main.dir/requires: CMakeFiles/main.dir/ObjectDetectionThread.cpp.o.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/MultiModalModule.cpp.o.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/main.cpp.o.requires
 
@@ -186,6 +213,6 @@ CMakeFiles/main.dir/clean:
 .PHONY : CMakeFiles/main.dir/clean
 
 CMakeFiles/main.dir/depend:
-	cd /home/robotics/thesis/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/robotics/thesis /home/robotics/thesis /home/robotics/thesis/build /home/robotics/thesis/build /home/robotics/thesis/build/CMakeFiles/main.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/muri/thesis/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/muri/thesis /home/muri/thesis /home/muri/thesis/build /home/muri/thesis/build /home/muri/thesis/build/CMakeFiles/main.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/main.dir/depend
 

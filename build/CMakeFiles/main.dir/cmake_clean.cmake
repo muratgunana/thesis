@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/main.dir/MultiModalThread.cpp.o"
+  "CMakeFiles/main.dir/CollisionDetectionThread.cpp.o"
+  "CMakeFiles/main.dir/ObjectDetectionThread.cpp.o"
   "CMakeFiles/main.dir/MultiModalModule.cpp.o"
   "CMakeFiles/main.dir/main.cpp.o"
   "main.pdb"

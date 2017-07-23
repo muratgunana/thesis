@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/robotics/thesis
+CMAKE_SOURCE_DIR = /home/muri/thesis
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/robotics/thesis/build
+CMAKE_BINARY_DIR = /home/muri/thesis/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotics/thesis/build/CMakeFiles /home/robotics/thesis/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/muri/thesis/build/CMakeFiles /home/muri/thesis/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotics/thesis/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/muri/thesis/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,19 +111,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named thread
-
-# Build rule for target.
-thread: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 thread
-.PHONY : thread
-
-# fast build rule for target.
-thread/fast:
-	$(MAKE) -f CMakeFiles/thread.dir/build.make CMakeFiles/thread.dir/build
-.PHONY : thread/fast
-
-#=============================================================================
 # Target rules for targets named main
 
 # Build rule for target.
@@ -135,6 +122,33 @@ main: cmake_check_build_system
 main/fast:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
+
+CollisionDetectionThread.o: CollisionDetectionThread.cpp.o
+
+.PHONY : CollisionDetectionThread.o
+
+# target to build an object file
+CollisionDetectionThread.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/CollisionDetectionThread.cpp.o
+.PHONY : CollisionDetectionThread.cpp.o
+
+CollisionDetectionThread.i: CollisionDetectionThread.cpp.i
+
+.PHONY : CollisionDetectionThread.i
+
+# target to preprocess a source file
+CollisionDetectionThread.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/CollisionDetectionThread.cpp.i
+.PHONY : CollisionDetectionThread.cpp.i
+
+CollisionDetectionThread.s: CollisionDetectionThread.cpp.s
+
+.PHONY : CollisionDetectionThread.s
+
+# target to generate assembly for a file
+CollisionDetectionThread.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/CollisionDetectionThread.cpp.s
+.PHONY : CollisionDetectionThread.cpp.s
 
 MultiModalModule.o: MultiModalModule.cpp.o
 
@@ -163,59 +177,32 @@ MultiModalModule.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/MultiModalModule.cpp.s
 .PHONY : MultiModalModule.cpp.s
 
-MultiModalThread.o: MultiModalThread.cpp.o
+ObjectDetectionThread.o: ObjectDetectionThread.cpp.o
 
-.PHONY : MultiModalThread.o
-
-# target to build an object file
-MultiModalThread.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/MultiModalThread.cpp.o
-.PHONY : MultiModalThread.cpp.o
-
-MultiModalThread.i: MultiModalThread.cpp.i
-
-.PHONY : MultiModalThread.i
-
-# target to preprocess a source file
-MultiModalThread.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/MultiModalThread.cpp.i
-.PHONY : MultiModalThread.cpp.i
-
-MultiModalThread.s: MultiModalThread.cpp.s
-
-.PHONY : MultiModalThread.s
-
-# target to generate assembly for a file
-MultiModalThread.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/MultiModalThread.cpp.s
-.PHONY : MultiModalThread.cpp.s
-
-Thread.o: Thread.cpp.o
-
-.PHONY : Thread.o
+.PHONY : ObjectDetectionThread.o
 
 # target to build an object file
-Thread.cpp.o:
-	$(MAKE) -f CMakeFiles/thread.dir/build.make CMakeFiles/thread.dir/Thread.cpp.o
-.PHONY : Thread.cpp.o
+ObjectDetectionThread.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/ObjectDetectionThread.cpp.o
+.PHONY : ObjectDetectionThread.cpp.o
 
-Thread.i: Thread.cpp.i
+ObjectDetectionThread.i: ObjectDetectionThread.cpp.i
 
-.PHONY : Thread.i
+.PHONY : ObjectDetectionThread.i
 
 # target to preprocess a source file
-Thread.cpp.i:
-	$(MAKE) -f CMakeFiles/thread.dir/build.make CMakeFiles/thread.dir/Thread.cpp.i
-.PHONY : Thread.cpp.i
+ObjectDetectionThread.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/ObjectDetectionThread.cpp.i
+.PHONY : ObjectDetectionThread.cpp.i
 
-Thread.s: Thread.cpp.s
+ObjectDetectionThread.s: ObjectDetectionThread.cpp.s
 
-.PHONY : Thread.s
+.PHONY : ObjectDetectionThread.s
 
 # target to generate assembly for a file
-Thread.cpp.s:
-	$(MAKE) -f CMakeFiles/thread.dir/build.make CMakeFiles/thread.dir/Thread.cpp.s
-.PHONY : Thread.cpp.s
+ObjectDetectionThread.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/ObjectDetectionThread.cpp.s
+.PHONY : ObjectDetectionThread.cpp.s
 
 main.o: main.cpp.o
 
@@ -251,18 +238,17 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... thread"
 	@echo "... edit_cache"
 	@echo "... main"
+	@echo "... CollisionDetectionThread.o"
+	@echo "... CollisionDetectionThread.i"
+	@echo "... CollisionDetectionThread.s"
 	@echo "... MultiModalModule.o"
 	@echo "... MultiModalModule.i"
 	@echo "... MultiModalModule.s"
-	@echo "... MultiModalThread.o"
-	@echo "... MultiModalThread.i"
-	@echo "... MultiModalThread.s"
-	@echo "... Thread.o"
-	@echo "... Thread.i"
-	@echo "... Thread.s"
+	@echo "... ObjectDetectionThread.o"
+	@echo "... ObjectDetectionThread.i"
+	@echo "... ObjectDetectionThread.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
