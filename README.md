@@ -17,11 +17,13 @@ This is an ongoing project for my master thesis that is to build a framework in 
 
 1. Launch yarpserver
 
-2. Launch OpenNIDeviceServer by command `yarpdev --device OpenNI2DeviceServer` within `/build` directory.
+2. Launch iCub simulation with `iCub_SIM` within `/thesis` directory.
 
-3. Initialize iKinGazeCtrl with `iKinGazeCtrl --from configSim.ini`.
+3. Launch OpenNIDeviceServer by command `yarpdev --device OpenNI2DeviceServer` within `/build` directory.
 
-4. Compile the project within /build directory and run `./main` executable file.
+4. Initialize iKinGazeCtrl with `iKinGazeCtrl --from configSim.ini`.
+
+5. Compile the project within /build directory and run `./main` executable file.
 
 # Further Info
 
