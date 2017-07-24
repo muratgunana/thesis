@@ -17,11 +17,11 @@ This is an ongoing project for my master thesis that is to build a framework in 
 
 1. Launch yarpserver
 
-2. Launch OpenNIDeviceServer
+2. Launch OpenNIDeviceServer by command `yarpdev --device OpenNI2DeviceServer` within `/build` directory.
 
 3. Initialize iKinGazeCtrl with `iKinGazeCtrl --from configSim.ini`.
 
-4. Compile the project within /build directory and run `./OpenNI2SkeletonData` exectable file.
+4. Compile the project within /build directory and run `./main` executable file.
 
 # Further Info
 
