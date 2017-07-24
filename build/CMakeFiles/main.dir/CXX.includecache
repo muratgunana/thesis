@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/muri/thesis/CollisionDetectionThread.cpp
+/home/robotics/thesis/CollisionDetectionThread.cpp
 CollisionDetectionThread.h
-/home/muri/thesis/CollisionDetectionThread.h
+/home/robotics/thesis/CollisionDetectionThread.h
 yarp/os/LogStream.h
 -
 yarp/sig/Image.h
@@ -16,7 +16,7 @@ yarp/sig/Image.h
 yarp/os/Time.h
 -
 
-/home/muri/thesis/CollisionDetectionThread.h
+/home/robotics/thesis/CollisionDetectionThread.h
 string
 -
 yarp/os/Thread.h
@@ -52,9 +52,9 @@ yarp/dev/GazeControl.h
 yarp/dev/PolyDriver.h
 -
 
-/home/muri/thesis/MultiModalModule.cpp
+/home/robotics/thesis/MultiModalModule.cpp
 MultiModalModule.h
-/home/muri/thesis/MultiModalModule.h
+/home/robotics/thesis/MultiModalModule.h
 yarp/os/LogStream.h
 -
 yarp/sig/ImageDraw.h
@@ -62,7 +62,7 @@ yarp/sig/ImageDraw.h
 yarp/os/Time.h
 -
 
-/home/muri/thesis/MultiModalModule.h
+/home/robotics/thesis/MultiModalModule.h
 yarp/dev/GazeControl.h
 -
 yarp/dev/PolyDriver.h
@@ -78,11 +78,11 @@ yarp/os/Bottle.h
 yarp/sig/Image.h
 -
 ObjectDetectionThread.h
-/home/muri/thesis/ObjectDetectionThread.h
+/home/robotics/thesis/ObjectDetectionThread.h
 CollisionDetectionThread.h
-/home/muri/thesis/CollisionDetectionThread.h
+/home/robotics/thesis/CollisionDetectionThread.h
 
-/home/muri/thesis/ObjectDetectionThread.cpp
+/home/robotics/thesis/ObjectDetectionThread.cpp
 cv.h
 -
 cvaux.h
@@ -100,7 +100,7 @@ opencv2/imgproc/imgproc.hpp
 opencv2/objdetect/objdetect.hpp
 -
 ObjectDetectionThread.h
-/home/muri/thesis/ObjectDetectionThread.h
+/home/robotics/thesis/ObjectDetectionThread.h
 yarp/os/LogStream.h
 -
 yarp/os/Network.h
@@ -109,8 +109,10 @@ yarp/sig/Image.h
 -
 yarp/os/Time.h
 -
+yarp/os/Property.h
+-
 
-/home/muri/thesis/ObjectDetectionThread.h
+/home/robotics/thesis/ObjectDetectionThread.h
 string
 -
 yarp/os/Thread.h
@@ -121,8 +123,10 @@ yarp/sig/Image.h
 -
 yarp/os/BufferedPort.h
 -
+yarp/os/Bottle.h
+-
 
-/home/muri/thesis/main.cpp
+/home/robotics/thesis/main.cpp
 yarp/os/Network.h
 -
 yarp/os/LogStream.h
@@ -130,7 +134,7 @@ yarp/os/LogStream.h
 yarp/os/ResourceFinder.h
 -
 MultiModalModule.h
-/home/muri/thesis/MultiModalModule.h
+/home/robotics/thesis/MultiModalModule.h
 
 /usr/include/opencv/cv.h
 opencv2/core/core_c.h

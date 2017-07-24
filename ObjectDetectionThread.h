@@ -3,6 +3,7 @@
 #include <yarp/os/Semaphore.h>
 #include <yarp/sig/Image.h>
 #include <yarp/os/BufferedPort.h>
+#include <yarp/os/Bottle.h>
 
 using namespace yarp::sig;
 using namespace yarp::os;

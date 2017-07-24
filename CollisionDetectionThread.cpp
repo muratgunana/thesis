@@ -66,7 +66,7 @@ void CollisionDetectionThread::collisionDetector() {
        
     prop.fromConfigFile("object.ini");
     Bottle envBottle;
-    envBottle = prop.findGroup("home");
+    envBottle = prop.findGroup("robotics");
       
     red_ball[0] = envBottle.findGroup("red").get(1).asDouble();
     red_ball[1] = envBottle.findGroup("red").get(2).asDouble(); 

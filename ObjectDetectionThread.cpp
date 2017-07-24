@@ -12,8 +12,10 @@
 #include <yarp/os/Network.h>
 #include <yarp/sig/Image.h>
 #include <yarp/os/Time.h>
+#include <yarp/os/Property.h>
 
 using namespace yarp::sig;
+using namespace std;
 
 ObjectDetectionThread::ObjectDetectionThread()
   : semStart(0), semDone(0), interrupted(false) { }
@@ -50,7 +52,29 @@ void ObjectDetectionThread::objectDetection() {
                                       IPL_DEPTH_8U, 3 );
     cvCvtColor((IplImage*)image->getIplImage(), cvImage, CV_RGB2BGR);
     cv::Mat bgr_image(cvImage);
+
+    // Read hue colors from the file.
+    Property hueBottle; 
+    hueBottle.fromConfigFile("colorcode.ini");
     
+    string color = "red";
+    int objectColor = this->getColorCode();
+    switch (objectColor) {
+      case 1:
+        color = "red";
+        break;
+      case 2:
+        color = "green";
+        break;
+
+      case 3:
+        color = "purple";
+        break;
+
+      default:
+        color = "red";
+        break;
+    }
     orig_image = bgr_image.clone();
 
     cv::medianBlur(bgr_image, bgr_image, 3);
@@ -62,8 +86,8 @@ void ObjectDetectionThread::objectDetection() {
     // Threshold the HSV image, keep only the red pixels
     cv::Mat lower_hue_range;
     cv::Mat upper_hue_range;
-    cv::inRange(hsv_image, cv::Scalar(0, 100, 100), cv::Scalar(10, 255, 255), lower_hue_range);
-    cv::inRange(hsv_image, cv::Scalar(160, 100, 100), cv::Scalar(179, 255, 255), upper_hue_range);
+    cv::inRange(hsv_image, cv::Scalar(hueBottle.findGroup(color + "_lower").get(1).asInt(), 100, 100), cv::Scalar(hueBottle.findGroup(color + "_lower").get(2).asInt(), 255, 255), lower_hue_range);
+    cv::inRange(hsv_image, cv::Scalar(hueBottle.findGroup(color + "_upper").get(1).asInt(), 100, 100), cv::Scalar(hueBottle.findGroup(color + "_upper").get(2).asInt(), 255, 255), upper_hue_range);
 
     // Combine the above two images
     cv::Mat hue_image;
