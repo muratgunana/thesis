@@ -14,6 +14,10 @@
 #include <yarp/os/Time.h>
 #include <yarp/os/Property.h>
 
+#define RED_COLOR "red"
+#define GREEN_COLOR "green"
+#define PURPLE_COLOR "purple"
+
 using namespace yarp::sig;
 using namespace std;
 
@@ -31,7 +35,9 @@ void ObjectDetectionThread::run() {
 }
 
 bool ObjectDetectionThread::threadInit() {
-
+  
+  this->setColorCode(0);
+  
   // Open the port and connect OPenNI RGB port to stream.
   this->imagePort.open("/imagergb");
   Network::connect("/OpenNI2/imageFrame:o","/imagergb");
@@ -40,8 +46,8 @@ bool ObjectDetectionThread::threadInit() {
 }
 
 void ObjectDetectionThread::objectDetection() {
-  
   ImageOf<PixelRgb> *image;
+  
   while (cv::waitKey(27) != 'Esc') {
     
     printf("Object color code: %d\n", this->colorCode);
@@ -57,22 +63,22 @@ void ObjectDetectionThread::objectDetection() {
     Property hueBottle; 
     hueBottle.fromConfigFile("colorcode.ini");
     
-    string color = "red";
+    string color;
     int objectColor = this->getColorCode();
     switch (objectColor) {
       case 1:
-        color = "red";
+        color = RED_COLOR;
         break;
       case 2:
-        color = "green";
+        color = GREEN_COLOR;
         break;
 
       case 3:
-        color = "purple";
+        color = PURPLE_COLOR;
         break;
 
       default:
-        color = "red";
+        color = RED_COLOR;
         break;
     }
     orig_image = bgr_image.clone();

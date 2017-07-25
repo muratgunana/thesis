@@ -52,7 +52,7 @@ public:
 private:
   BufferedPort<ImageOf<PixelRgb> > imagePort;
   bool interrupted;
-  int colorCode = 0;
+  int colorCode;
   yarp::os::Semaphore semStart;
   yarp::os::Semaphore semDone;    
 };

@@ -6,6 +6,10 @@
 #define WRIST_JOINT 44
 #define ELBOW_JOINT 32
 
+#define RED_COLOR "red"
+#define GREEN_COLOR "green"
+#define PURPLE_COLOR "purple"
+
 using namespace std;
 
 CollisionDetectionThread::CollisionDetectionThread()
@@ -67,58 +71,48 @@ void CollisionDetectionThread::collisionDetector() {
     prop.fromConfigFile("object.ini");
     Bottle envBottle;
     envBottle = prop.findGroup("robotics");
-      
-    red_ball[0] = envBottle.findGroup("red").get(1).asDouble();
-    red_ball[1] = envBottle.findGroup("red").get(2).asDouble(); 
-    red_ball[2] = envBottle.findGroup("red").get(3).asDouble();
-
-    purple_ball[0] = envBottle.findGroup("purple").get(1).asDouble();
-    purple_ball[1] = envBottle.findGroup("purple").get(2).asDouble();
-    purple_ball[2] = envBottle.findGroup("purple").get(3).asDouble();
-    
-    green_ball[0] = envBottle.findGroup("green").get(1).asDouble();
-    green_ball[1] = envBottle.findGroup("green").get(2).asDouble();
-    green_ball[2] = envBottle.findGroup("green").get(3).asDouble();
-     
-    VectorOf<yarp::sig::Vector> vector_storage(2);
-    //vector_storage[1] = red_ball;
-    //vector_storage[2] = purple_ball;
-      
-    for (int i = 0; i < vector_storage.size(); ++i) {
-      // Create another vector from elbow joint to ball center.
-      // This is needed to get dot product of hand_vector.
-      if (i == 0) 
-        ball_center = red_ball;
-      else if (i == 1)
-        ball_center = purple_ball;
-      else if (i == 2)
-        ball_center = green_ball;
-      //printf("Vector storage: %s\n", vector_storage[i].toString().c_str());
-      //ball_center = vector_storage[i];
-      yarp::sig::Vector elbow_ball_vector(3);
-      elbow_ball_vector = ball_center - elbow_joint;
+    printf("Size: %d\n", envBottle.size());
+    for (int i = 1; i < envBottle.size(); i++ ) {
+      // We are only interested in the color elements.
+      Bottle *lst = envBottle.get(i).asList();
+      if (lst->size() > 3) {
+        ball_center[0] = lst->get(1).asDouble(); 
+        ball_center[1] = lst->get(2).asDouble(); 
+        ball_center[2] = lst->get(3).asDouble();
+ 
+        yarp::sig::Vector elbow_ball_vector(3);
+        elbow_ball_vector = ball_center - elbow_joint;
   
-      // We need to take dot product of hand_vector with elbow_ball_vector 
-      // and this will give us the distance. If the result is less than zero then the hand vector
-      // is pointing away from the ball.
-      double distance, radius = envBottle.find("radius").asDouble();
-      distance = dot(hand_vector, elbow_ball_vector);
+        // We need to take dot product of hand_vector with elbow_ball_vector 
+        // and this will give us the distance. If the result is less than zero then the hand vector
+        // is pointing away from the ball.
+        double distance, radius = envBottle.find("radius").asDouble();
+        distance = dot(hand_vector, elbow_ball_vector);
       
-      // Scale hand vector in order to calculate the closest point to the ball.
-      yarp::sig::Vector hand_vector_scaled(3), closest_point(3);
-      hand_vector_scaled = hand_vector * distance;
-      closest_point = elbow_joint + hand_vector_scaled;
+        // Scale hand vector in order to calculate the closest point to the ball.
+        yarp::sig::Vector hand_vector_scaled(3), closest_point(3);
+        hand_vector_scaled = hand_vector * distance;
+        closest_point = elbow_joint + hand_vector_scaled;
       
-      // Check the distance between the closest point and object center. If it is smaller than 
-      // the radius then the points is inside the object. That means that the hand points the object with 
-      // correct coordinates. 
-      if (distance > 0 && dot(ball_center - closest_point, ball_center - closest_point) < radius * radius) {
-        printf("Pointing correctly: %f\n", distance);
-        this->igaze->lookAtFixationPoint(ball_center/100.0);// request to gaze at the desired fixation point and wait for reply (sync method)
-        this->igaze->waitMotionDone();
-        this->setColorCode(i+1);
-      }
-    }
+        // Check the distance between the closest point and object center. If it is smaller than 
+        // the radius then the points is inside the object. That means that the hand points the object with 
+        // correct coordinates. 
+        if (distance > 0 && dot(ball_center - closest_point, ball_center - closest_point) < radius * radius) {
+          printf("Pointing correctly: %f\n", distance);
+          this->igaze->lookAtFixationPoint(ball_center/100.0);// request to gaze at the desired fixation point and wait for reply (sync method)
+          this->igaze->waitMotionDone();
+          if (lst->get(0).asString() == RED_COLOR) {
+            this->setColorCode(RED);
+          }
+          else if (lst->get(0).asString() == GREEN_COLOR) {
+            this->setColorCode(GREEN);
+          }
+          else if (lst->get(0).asString() == PURPLE_COLOR) {
+            this->setColorCode(PURPLE);
+          }
+        }
+      } 
+    }  
   }
 }
 
@@ -167,6 +161,8 @@ Bottle CollisionDetectionThread::showBottle(Bottle& anUnknownBottle, int indenta
 bool CollisionDetectionThread::threadInit() {
   this->skeletonPort.open("/receiver");
   Network::connect("/OpenNI2/userSkeleton:o","/receiver");
+  
+  this->setColorCode(COLOR_CODE_OFFSET);
 
   // open a client interface to connect to the gaze server
   // we suppose that:

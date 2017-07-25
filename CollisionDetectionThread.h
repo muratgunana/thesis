@@ -19,8 +19,8 @@
 
 #define COLOR_CODE_OFFSET 0
 #define RED               1
-#define PURPLE            2
-#define GREEN             3
+#define GREEN             2
+#define PURPLE            3
 
 using namespace yarp::os;
 using namespace yarp::dev;
@@ -78,7 +78,7 @@ private:
   PolyDriver clientGaze;
   IGazeControl *igaze;
   BufferedPort<Bottle> skeletonPort;
-  int colorCode = COLOR_CODE_OFFSET;
+  int colorCode;
   bool interrupted;
   yarp::os::Semaphore semStart;
   yarp::os::Semaphore semDone;    
