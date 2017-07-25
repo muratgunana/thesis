@@ -59,7 +59,7 @@ void CollisionDetectionThread::collisionDetector() {
     } 
     
     // Now we need to create ball centre point as vector.
-    yarp::sig::Vector ball_center(3), red_ball(3), purple_ball(3), green_ball(3);
+    yarp::sig::Vector ball_center(3);
        
     prop.fromConfigFile("object.ini");
     Bottle envBottle;
