@@ -27,8 +27,8 @@ ObjectDetectionThread::ObjectDetectionThread()
 ObjectDetectionThread::~ObjectDetectionThread() { }
 
 void ObjectDetectionThread::run() {
+ 
   while (!isStopping()) {
-    printf("Hello from thread2\n");
     ObjectDetectionThread::objectDetection();
     Time::delay(0);
   }
@@ -46,11 +46,11 @@ bool ObjectDetectionThread::threadInit() {
 }
 
 void ObjectDetectionThread::objectDetection() {
+  
   ImageOf<PixelRgb> *image;
   
   while (cv::waitKey(27) != 'Esc') {
     
-    printf("Object color code: %d\n", this->colorCode);
     cv::Mat orig_image;
     image = imagePort.read();
     IplImage *cvImage = cvCreateImage(cvSize(image->width(),  
@@ -123,9 +123,6 @@ void ObjectDetectionThread::objectDetection() {
     cv::imshow("Combined threshold images", hue_image);
     cv::namedWindow("Detected red circles on the input image", cv::WINDOW_AUTOSIZE);
     cv::imshow("Detected red circles on the input image", orig_image);
-    //return true; 
-  // Signal the thread to start processing.
-  //semStart.post();
   }
 }
 

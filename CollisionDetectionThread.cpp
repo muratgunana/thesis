@@ -18,60 +18,53 @@ CollisionDetectionThread::CollisionDetectionThread()
 CollisionDetectionThread::~CollisionDetectionThread() { }
 
 void CollisionDetectionThread::run() {
+  
   //Loop until the thread is running.
   while (!isStopping()) {
-    printf("Hello, from thread1\n");
     CollisionDetectionThread::collisionDetector();
     Time::delay(0);
   }
 }
 
 void CollisionDetectionThread::collisionDetector() {
-  std::cout << "Hello from the pointer" << std::endl;
+  
   yarp::sig::Vector elbow_joint(3), wrist_joint(3), hand_vector(3);
   Property prop;
   Bottle* bot = skeletonPort.read();
-  Bottle& pos = bot->findGroup("POS");
-  //printf("Pos-whole : %s\n", pos.toString().c_str());
-  //printf("Pos-size: %d\n", bot->size());
-  for (int i=1; i < bot->size(); i++) {
-    //printf("Pos[%d]: %d\n", i, bot->get(i).asInt());
-  }
-
   Bottle bottle;
+  
   // Extract skeleton parts.
   bottle = CollisionDetectionThread::showBottle(*bot, 0);
   if (!bottle.isNull()) {
-    printf("Elbow-joint and wrist-joint vectors: %s\n", bottle.toString().c_str()); 
     for (int i = 0; i < bottle.size(); i++) {
       Value& element_list = bottle.get(i);
       Bottle *lst = element_list.asList();
       for (int j = 0; j < lst->size(); j++) {
         Value& element = lst->get(j);
         if (i == 0) {
-          elbow_joint[j] = element.asDouble()/10.0;
+          // Scale up the value to cm from mm.
+          elbow_joint[j] = element.asDouble()/10.0f;
         }
         if (i == 1) {
-          wrist_joint[j] = element.asDouble()/10.0;
+          wrist_joint[j] = element.asDouble()/10.0f;
         }
       }
     }
    
     // Create the hand vector from elbow and wrist joints.
     hand_vector = wrist_joint - elbow_joint;
-    printf("hand vector before: %s\n", hand_vector.toString().c_str());
       
     if (norm(hand_vector) > 0) {
       hand_vector /= norm(hand_vector);
     } 
-    printf("hand vector normalized: %s\n", hand_vector.toString().c_str());
+    
     // Now we need to create ball centre point as vector.
     yarp::sig::Vector ball_center(3), red_ball(3), purple_ball(3), green_ball(3);
        
     prop.fromConfigFile("object.ini");
     Bottle envBottle;
     envBottle = prop.findGroup("robotics");
-    printf("Size: %d\n", envBottle.size());
+    
     for (int i = 1; i < envBottle.size(); i++ ) {
       // We are only interested in the color elements.
       Bottle *lst = envBottle.get(i).asList();
