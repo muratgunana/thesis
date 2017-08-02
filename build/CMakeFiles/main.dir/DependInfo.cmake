@@ -4,17 +4,26 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/robotics/thesis/CollisionDetectionThread.cpp" "/home/robotics/thesis/build/CMakeFiles/main.dir/CollisionDetectionThread.cpp.o"
-  "/home/robotics/thesis/MultiModalModule.cpp" "/home/robotics/thesis/build/CMakeFiles/main.dir/MultiModalModule.cpp.o"
-  "/home/robotics/thesis/ObjectDetectionThread.cpp" "/home/robotics/thesis/build/CMakeFiles/main.dir/ObjectDetectionThread.cpp.o"
-  "/home/robotics/thesis/main.cpp" "/home/robotics/thesis/build/CMakeFiles/main.dir/main.cpp.o"
+  "/home/mgunana/thesis/CollisionDetectionThread.cpp" "/home/mgunana/thesis/build/CMakeFiles/main.dir/CollisionDetectionThread.cpp.o"
+  "/home/mgunana/thesis/MultiModalModule.cpp" "/home/mgunana/thesis/build/CMakeFiles/main.dir/MultiModalModule.cpp.o"
+  "/home/mgunana/thesis/ObjectDetectionThread.cpp" "/home/mgunana/thesis/build/CMakeFiles/main.dir/ObjectDetectionThread.cpp.o"
+  "/home/mgunana/thesis/main.cpp" "/home/mgunana/thesis/build/CMakeFiles/main.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/include/opencv"
-  "/usr/local/include"
+  "/home/mgunana/yarp/build/src/libYARP_conf/include"
+  "/home/mgunana/yarp/src/libYARP_OS/include"
+  "/home/mgunana/yarp/src/libYARP_sig/include"
+  "/home/mgunana/yarp/src/libYARP_eigen/include"
+  "/home/mgunana/yarp/src/libYARP_gsl/include"
+  "/home/mgunana/yarp/src/libYARP_math/include"
+  "/home/mgunana/yarp/src/libYARP_dev/include"
+  "/home/mgunana/yarp/src/libYARP_name/include"
+  "/home/mgunana/yarp/src/libYARP_manager/include"
+  "/home/mgunana/yarp/src/libYARP_logger/include"
   )
 
 # Targets to which this target links.

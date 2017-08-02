@@ -75,8 +75,11 @@ public:
   void interrupt();
 
 private:
-  PolyDriver clientGaze;
-  IGazeControl *igaze;
+  //PolyDriver clientGaze;
+  //IGazeControl *igaze;
+  BufferedPort<Bottle> speechPort;
+  BufferedPort<Bottle> gazeEventPort;
+  BufferedPort<Bottle> iKinGazePort;
   BufferedPort<Bottle> skeletonPort;
   int colorCode;
   bool interrupted;

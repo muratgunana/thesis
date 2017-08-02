@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/robotics/thesis
+CMAKE_SOURCE_DIR = /home/mgunana/thesis
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/robotics/thesis/build
+CMAKE_BINARY_DIR = /home/mgunana/thesis/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/main.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/main.dir/flags.make
 
 CMakeFiles/main.dir/CollisionDetectionThread.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/CollisionDetectionThread.cpp.o: ../CollisionDetectionThread.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robotics/thesis/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/CollisionDetectionThread.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/CollisionDetectionThread.cpp.o -c /home/robotics/thesis/CollisionDetectionThread.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mgunana/thesis/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/CollisionDetectionThread.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/CollisionDetectionThread.cpp.o -c /home/mgunana/thesis/CollisionDetectionThread.cpp
 
 CMakeFiles/main.dir/CollisionDetectionThread.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/CollisionDetectionThread.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/robotics/thesis/CollisionDetectionThread.cpp > CMakeFiles/main.dir/CollisionDetectionThread.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mgunana/thesis/CollisionDetectionThread.cpp > CMakeFiles/main.dir/CollisionDetectionThread.cpp.i
 
 CMakeFiles/main.dir/CollisionDetectionThread.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/CollisionDetectionThread.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/robotics/thesis/CollisionDetectionThread.cpp -o CMakeFiles/main.dir/CollisionDetectionThread.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mgunana/thesis/CollisionDetectionThread.cpp -o CMakeFiles/main.dir/CollisionDetectionThread.cpp.s
 
 CMakeFiles/main.dir/CollisionDetectionThread.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/main.dir/CollisionDetectionThread.cpp.o.provides.build: CMakeFiles/ma
 
 CMakeFiles/main.dir/ObjectDetectionThread.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/ObjectDetectionThread.cpp.o: ../ObjectDetectionThread.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robotics/thesis/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/ObjectDetectionThread.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/ObjectDetectionThread.cpp.o -c /home/robotics/thesis/ObjectDetectionThread.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mgunana/thesis/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/ObjectDetectionThread.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/ObjectDetectionThread.cpp.o -c /home/mgunana/thesis/ObjectDetectionThread.cpp
 
 CMakeFiles/main.dir/ObjectDetectionThread.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/ObjectDetectionThread.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/robotics/thesis/ObjectDetectionThread.cpp > CMakeFiles/main.dir/ObjectDetectionThread.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mgunana/thesis/ObjectDetectionThread.cpp > CMakeFiles/main.dir/ObjectDetectionThread.cpp.i
 
 CMakeFiles/main.dir/ObjectDetectionThread.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/ObjectDetectionThread.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/robotics/thesis/ObjectDetectionThread.cpp -o CMakeFiles/main.dir/ObjectDetectionThread.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mgunana/thesis/ObjectDetectionThread.cpp -o CMakeFiles/main.dir/ObjectDetectionThread.cpp.s
 
 CMakeFiles/main.dir/ObjectDetectionThread.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/main.dir/ObjectDetectionThread.cpp.o.provides.build: CMakeFiles/main.
 
 CMakeFiles/main.dir/MultiModalModule.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/MultiModalModule.cpp.o: ../MultiModalModule.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robotics/thesis/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/MultiModalModule.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/MultiModalModule.cpp.o -c /home/robotics/thesis/MultiModalModule.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mgunana/thesis/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/MultiModalModule.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/MultiModalModule.cpp.o -c /home/mgunana/thesis/MultiModalModule.cpp
 
 CMakeFiles/main.dir/MultiModalModule.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/MultiModalModule.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/robotics/thesis/MultiModalModule.cpp > CMakeFiles/main.dir/MultiModalModule.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mgunana/thesis/MultiModalModule.cpp > CMakeFiles/main.dir/MultiModalModule.cpp.i
 
 CMakeFiles/main.dir/MultiModalModule.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/MultiModalModule.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/robotics/thesis/MultiModalModule.cpp -o CMakeFiles/main.dir/MultiModalModule.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mgunana/thesis/MultiModalModule.cpp -o CMakeFiles/main.dir/MultiModalModule.cpp.s
 
 CMakeFiles/main.dir/MultiModalModule.cpp.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/main.dir/MultiModalModule.cpp.o.provides.build: CMakeFiles/main.dir/M
 
 CMakeFiles/main.dir/main.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robotics/thesis/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/main.cpp.o -c /home/robotics/thesis/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mgunana/thesis/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/main.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/main.cpp.o -c /home/mgunana/thesis/main.cpp
 
 CMakeFiles/main.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/robotics/thesis/main.cpp > CMakeFiles/main.dir/main.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mgunana/thesis/main.cpp > CMakeFiles/main.dir/main.cpp.i
 
 CMakeFiles/main.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/robotics/thesis/main.cpp -o CMakeFiles/main.dir/main.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mgunana/thesis/main.cpp -o CMakeFiles/main.dir/main.cpp.s
 
 CMakeFiles/main.dir/main.cpp.o.requires:
 
@@ -168,9 +168,9 @@ main: CMakeFiles/main.dir/ObjectDetectionThread.cpp.o
 main: CMakeFiles/main.dir/MultiModalModule.cpp.o
 main: CMakeFiles/main.dir/main.cpp.o
 main: CMakeFiles/main.dir/build.make
-main: /usr/local/lib/libYARP_dev.so.2.3.68
-main: /usr/local/lib/libYARP_name.so.2.3.68
-main: /usr/local/lib/libYARP_init.so.2.3.68
+main: /home/mgunana/yarp/build/lib/libYARP_dev.so.2.3.70
+main: /home/mgunana/yarp/build/lib/libYARP_name.so.2.3.70
+main: /home/mgunana/yarp/build/lib/libYARP_init.so.2.3.70
 main: /usr/lib/x86_64-linux-gnu/libopencv_videostab.so.2.4.9
 main: /usr/lib/x86_64-linux-gnu/libopencv_ts.so.2.4.9
 main: /usr/lib/x86_64-linux-gnu/libopencv_superres.so.2.4.9
@@ -178,9 +178,9 @@ main: /usr/lib/x86_64-linux-gnu/libopencv_stitching.so.2.4.9
 main: /usr/lib/x86_64-linux-gnu/libopencv_ocl.so.2.4.9
 main: /usr/lib/x86_64-linux-gnu/libopencv_gpu.so.2.4.9
 main: /usr/lib/x86_64-linux-gnu/libopencv_contrib.so.2.4.9
-main: /usr/local/lib/libYARP_math.so.2.3.68
-main: /usr/local/lib/libYARP_sig.so.2.3.68
-main: /usr/local/lib/libYARP_OS.so.2.3.68
+main: /home/mgunana/yarp/build/lib/libYARP_math.so.2.3.70
+main: /home/mgunana/yarp/build/lib/libYARP_sig.so.2.3.70
+main: /home/mgunana/yarp/build/lib/libYARP_OS.so.2.3.70
 main: /usr/lib/x86_64-linux-gnu/libopencv_photo.so.2.4.9
 main: /usr/lib/x86_64-linux-gnu/libopencv_legacy.so.2.4.9
 main: /usr/lib/x86_64-linux-gnu/libopencv_video.so.2.4.9
@@ -193,7 +193,7 @@ main: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.2.4.9
 main: /usr/lib/x86_64-linux-gnu/libopencv_flann.so.2.4.9
 main: /usr/lib/x86_64-linux-gnu/libopencv_core.so.2.4.9
 main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/robotics/thesis/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mgunana/thesis/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -213,6 +213,6 @@ CMakeFiles/main.dir/clean:
 .PHONY : CMakeFiles/main.dir/clean
 
 CMakeFiles/main.dir/depend:
-	cd /home/robotics/thesis/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/robotics/thesis /home/robotics/thesis /home/robotics/thesis/build /home/robotics/thesis/build /home/robotics/thesis/build/CMakeFiles/main.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/mgunana/thesis/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mgunana/thesis /home/mgunana/thesis /home/mgunana/thesis/build /home/mgunana/thesis/build /home/mgunana/thesis/build/CMakeFiles/main.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/main.dir/depend
 

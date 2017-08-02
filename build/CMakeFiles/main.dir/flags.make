@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/usr/include/opencv -I/usr/local/include 
+CXX_INCLUDES = -I/usr/include/opencv -isystem /home/mgunana/yarp/build/src/libYARP_conf/include -isystem /home/mgunana/yarp/src/libYARP_OS/include -isystem /home/mgunana/yarp/src/libYARP_sig/include -I/home/mgunana/yarp/src/libYARP_eigen/include -I/home/mgunana/yarp/src/libYARP_gsl/include -isystem /home/mgunana/yarp/src/libYARP_math/include -isystem /home/mgunana/yarp/src/libYARP_dev/include -isystem /home/mgunana/yarp/src/libYARP_name/include -I/home/mgunana/yarp/src/libYARP_manager/include -I/home/mgunana/yarp/src/libYARP_logger/include 
 

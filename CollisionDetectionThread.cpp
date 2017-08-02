@@ -6,9 +6,19 @@
 #define WRIST_JOINT 44
 #define ELBOW_JOINT 32
 
-#define RED_COLOR "red"
-#define GREEN_COLOR "green"
+#define GAZE_EVENT_PORT "/iKinGazeCtrl/events:o"
+#define GAZE_EVENT_LOCAL_PORT "/gazeEventLocal"
+#define IKIN_GAZE_LOCAL_PORT "/iKinGazeLocal"
+#define IKIN_GAZE_PORT "/iKinGazeCtrl/xd:i"
+#define OPENNI_DATA_PORT "/OpenNI2/userSkeleton:o"
+#define SKELETON_DATA_PORT "/skeletonPort"
+#define MSPEAK_PORT "/MSpeak/text:i"
+#define SPEECH_PORT "/speechPort"
+
+#define RED_COLOR    "red"
+#define GREEN_COLOR  "green"
 #define PURPLE_COLOR "purple"
+#define LEFT_EYE     "left_eye"
 
 using namespace std;
 
@@ -62,20 +72,20 @@ void CollisionDetectionThread::collisionDetector() {
     yarp::sig::Vector ball_center(3);
        
     prop.fromConfigFile("object.ini");
-    Bottle envBottle;
-    envBottle = prop.findGroup("robotics");
+    Bottle& envBottle = prop.findGroup("robotics");
     
     for (int i = 1; i < envBottle.size(); i++ ) {
       // We are only interested in the color elements.
       Bottle *lst = envBottle.get(i).asList();
-      if (lst->size() > 3) {
+      if (lst->size() > 3 && lst->get(0).asString() != LEFT_EYE) {
         ball_center[0] = lst->get(1).asDouble(); 
         ball_center[1] = lst->get(2).asDouble(); 
         ball_center[2] = lst->get(3).asDouble();
- 
+       
         yarp::sig::Vector elbow_ball_vector(3);
         elbow_ball_vector = ball_center - elbow_joint;
-  
+        //printf("Elbow joint: %s\n", elbow_joint.toString().c_str());
+        
         // We need to take dot product of hand_vector with elbow_ball_vector 
         // and this will give us the distance. If the result is less than zero then the hand vector
         // is pointing away from the ball.
@@ -92,8 +102,13 @@ void CollisionDetectionThread::collisionDetector() {
         // correct coordinates. 
         if (distance > 0 && dot(ball_center - closest_point, ball_center - closest_point) < radius * radius) {
           printf("Pointing correctly: %f\n", distance);
-          this->igaze->lookAtFixationPoint(ball_center/100.0);// request to gaze at the desired fixation point and wait for reply (sync method)
-          this->igaze->waitMotionDone();
+          
+          Bottle& eyeBottle = envBottle.findGroup(LEFT_EYE);
+          yarp::sig::Vector eyeVector(3);
+          eyeVector[0] = eyeBottle.get(1).asDouble();
+          eyeVector[1] = eyeBottle.get(2).asDouble();
+          eyeVector[2] = eyeBottle.get(3).asDouble();
+          
           if (lst->get(0).asString() == RED_COLOR) {
             this->setColorCode(RED);
           }
@@ -103,6 +118,36 @@ void CollisionDetectionThread::collisionDetector() {
           else if (lst->get(0).asString() == PURPLE_COLOR) {
             this->setColorCode(PURPLE);
           }
+          
+          //this->igaze->lookAtFixationPoint((ball_center - eyeVector)/100.0f);// request to gaze at the desired fixation point and wait for reply (sync method)
+          //this->igaze->waitMotionDone();
+          printf("Color: %s\n", lst->get(0).asString().c_str());
+          yarp::sig::Vector tempVector(3), gazeVector(3);
+          tempVector = (ball_center - eyeVector) / 100.0f;
+          //printf("Temp vector: %s\n", tempVector.toString().c_str());
+          //printf("Eye vector: %s\n", eyeVector.toString().c_str());
+          gazeVector[0] = -tempVector[2];
+          gazeVector[1] = -tempVector[0];
+          gazeVector[2] = tempVector[1];
+          
+          printf("Gaze Bottle: %s\n", gazeVector.toString().c_str());
+          Bottle& iKinGazeBottle = this->iKinGazePort.prepare();
+          iKinGazeBottle.read(gazeVector);
+          this->iKinGazePort.write();
+          printf("iKinGaze Bottle: %s\n", iKinGazeBottle.toString().c_str());
+          
+          while (true) {
+            Bottle* eventBottle = this->gazeEventPort.read();
+            printf("Event bottle: %s\n", eventBottle->toString().c_str());
+            if (eventBottle->get(0).asString() == "motion-done") {
+              Bottle& speechBottle = this->speechPort.prepare();
+              std::string speechText = "You have selected " + lst->get(0).asString() + " object.";
+              speechBottle.addString(speechText);
+              this->speechPort.write();
+              break;
+            }
+          }
+          printf("Ball: %s\n", lst->get(0).asString().c_str());
         }
       } 
     }  
@@ -152,8 +197,21 @@ Bottle CollisionDetectionThread::showBottle(Bottle& anUnknownBottle, int indenta
 }
 
 bool CollisionDetectionThread::threadInit() {
-  this->skeletonPort.open("/receiver");
-  Network::connect("/OpenNI2/userSkeleton:o","/receiver");
+  // Open port for streaminf 3D sensor skeleton data.
+  this->skeletonPort.open(SKELETON_DATA_PORT);
+  Network::connect(OPENNI_DATA_PORT, SKELETON_DATA_PORT);
+  
+  // Open the port for iKinGazeCtrl server to write gaze coordinates.
+  this->iKinGazePort.open(IKIN_GAZE_LOCAL_PORT);
+  Network::connect(IKIN_GAZE_LOCAL_PORT, IKIN_GAZE_PORT);
+  
+  // Open the port for MSpeak speech server to text output.
+  this->speechPort.open(SPEECH_PORT);
+  Network::connect(SPEECH_PORT, MSPEAK_PORT);
+  
+  // Connect the iKinGazeCtrl events port to feed in the status of motion. 
+  this->gazeEventPort.open(GAZE_EVENT_LOCAL_PORT);
+  Network::connect(GAZE_EVENT_PORT, GAZE_EVENT_LOCAL_PORT);
   
   this->setColorCode(COLOR_CODE_OFFSET);
 
@@ -162,14 +220,14 @@ bool CollisionDetectionThread::threadInit() {
   // 1 - the iCub simulator is running;
   // 2 - the gaze server iKinGazeCtrl is running and
   //     launched with the following options: "--from configSim.ini"
-  Property optGaze("(device gazecontrollerclient)");
-  optGaze.put("remote","/iKinGazeCtrl");
-  optGaze.put("local","/gaze_client");
+  //Property optGaze("(device gazecontrollerclient)");
+  //optGaze.put("remote","/iKinGazeCtrl/xd:i");
+  //optGaze.put("local","/gaze_client");
 
-  if (!this->clientGaze.open(optGaze))
-    return false;
+  //if (!this->clientGaze.open(optGaze))
+    //return false;
   // open the view
-  this->clientGaze.view(this->igaze);
+  //this->clientGaze.view(this->igaze);
  
   return true;
 }

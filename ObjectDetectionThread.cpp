@@ -17,7 +17,10 @@
 #define RED_COLOR "red"
 #define GREEN_COLOR "green"
 #define PURPLE_COLOR "purple"
-
+#define SENSOR_RGB_PORT "/OpenNI2/imageFrame:o"
+#define ICUB_LEFT_EYE_PORT "/icub/cam/left"
+#define IMAGE_PORT "/imagergb"
+ 
 using namespace yarp::sig;
 using namespace std;
 
@@ -39,8 +42,8 @@ bool ObjectDetectionThread::threadInit() {
   this->setColorCode(0);
   
   // Open the port and connect OPenNI RGB port to stream.
-  this->imagePort.open("/imagergb");
-  Network::connect("/OpenNI2/imageFrame:o","/imagergb");
+  this->imagePort.open(IMAGE_PORT);
+  Network::connect(ICUB_LEFT_EYE_PORT, IMAGE_PORT);
  
  return true;
 }
@@ -102,7 +105,7 @@ void ObjectDetectionThread::objectDetection() {
 
     // Use the Hough transform to detect circles in the combined threshold image
     std::vector<cv::Vec3f> circles;
-    cv::HoughCircles(hue_image, circles, CV_HOUGH_GRADIENT, 1, hue_image.rows/8, 200, 40, 0, 0);
+    cv::HoughCircles(hue_image, circles, CV_HOUGH_GRADIENT, 1, hue_image.rows/8, 100, 25, 0, 0);
 
     // Loop over all detected circles and outline them on the original image
     //if (color_offset != 0) {
