@@ -168,9 +168,9 @@ main: CMakeFiles/main.dir/ObjectDetectionThread.cpp.o
 main: CMakeFiles/main.dir/MultiModalModule.cpp.o
 main: CMakeFiles/main.dir/main.cpp.o
 main: CMakeFiles/main.dir/build.make
-main: /home/mgunana/yarp/build/lib/libYARP_dev.so.2.3.70
-main: /home/mgunana/yarp/build/lib/libYARP_name.so.2.3.70
-main: /home/mgunana/yarp/build/lib/libYARP_init.so.2.3.70
+main: /usr/local/lib/libYARP_dev.so.2.3.70
+main: /usr/local/lib/libYARP_name.so.2.3.70
+main: /usr/local/lib/libYARP_init.so.2.3.70
 main: /usr/lib/x86_64-linux-gnu/libopencv_videostab.so.2.4.9
 main: /usr/lib/x86_64-linux-gnu/libopencv_ts.so.2.4.9
 main: /usr/lib/x86_64-linux-gnu/libopencv_superres.so.2.4.9
@@ -178,9 +178,9 @@ main: /usr/lib/x86_64-linux-gnu/libopencv_stitching.so.2.4.9
 main: /usr/lib/x86_64-linux-gnu/libopencv_ocl.so.2.4.9
 main: /usr/lib/x86_64-linux-gnu/libopencv_gpu.so.2.4.9
 main: /usr/lib/x86_64-linux-gnu/libopencv_contrib.so.2.4.9
-main: /home/mgunana/yarp/build/lib/libYARP_math.so.2.3.70
-main: /home/mgunana/yarp/build/lib/libYARP_sig.so.2.3.70
-main: /home/mgunana/yarp/build/lib/libYARP_OS.so.2.3.70
+main: /usr/local/lib/libYARP_math.so.2.3.70
+main: /usr/local/lib/libYARP_sig.so.2.3.70
+main: /usr/local/lib/libYARP_OS.so.2.3.70
 main: /usr/lib/x86_64-linux-gnu/libopencv_photo.so.2.4.9
 main: /usr/lib/x86_64-linux-gnu/libopencv_legacy.so.2.4.9
 main: /usr/lib/x86_64-linux-gnu/libopencv_video.so.2.4.9

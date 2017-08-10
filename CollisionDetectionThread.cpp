@@ -132,18 +132,23 @@ void CollisionDetectionThread::collisionDetector() {
           
           printf("Gaze Bottle: %s\n", gazeVector.toString().c_str());
           Bottle& iKinGazeBottle = this->iKinGazePort.prepare();
+          iKinGazeBottle.clear();
           iKinGazeBottle.read(gazeVector);
           this->iKinGazePort.write();
           printf("iKinGaze Bottle: %s\n", iKinGazeBottle.toString().c_str());
           
           while (true) {
             Bottle* eventBottle = this->gazeEventPort.read();
-            printf("Event bottle: %s\n", eventBottle->toString().c_str());
             if (eventBottle->get(0).asString() == "motion-done") {
+              printf("Event bottle: %s\n", eventBottle->toString().c_str());
               Bottle& speechBottle = this->speechPort.prepare();
-              std::string speechText = "You have selected " + lst->get(0).asString() + " object.";
+              speechBottle.clear();
+              std::string speechText = "You have selected the " + lst->get(0).asString() + " object.";
               speechBottle.addString(speechText);
+              
               this->speechPort.write();
+              printf("Speech Bottle: %s\n", speechBottle.toString().c_str());
+              Time::delay(2);
               break;
             }
           }

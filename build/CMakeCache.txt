@@ -237,7 +237,7 @@ Project_BINARY_DIR:STATIC=/home/mgunana/thesis/build
 Project_SOURCE_DIR:STATIC=/home/mgunana/thesis
 
 //The directory containing a CMake configuration file for YARP.
-YARP_DIR:PATH=/home/mgunana/yarp/build
+YARP_DIR:PATH=/usr/local/lib/YARP
 
 //Do not warn when using YARP deprecated declarations
 YARP_NO_DEPRECATED_WARNINGS:BOOL=OFF

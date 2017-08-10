@@ -81,7 +81,7 @@ void ObjectDetectionThread::objectDetection() {
         break;
 
       default:
-        color = RED_COLOR;
+        color = PURPLE_COLOR;
         break;
     }
     orig_image = bgr_image.clone();
@@ -95,8 +95,9 @@ void ObjectDetectionThread::objectDetection() {
     // Threshold the HSV image, keep only the red pixels
     cv::Mat lower_hue_range;
     cv::Mat upper_hue_range;
-    cv::inRange(hsv_image, cv::Scalar(hueBottle.findGroup(color + "_lower").get(1).asInt(), 100, 100), cv::Scalar(hueBottle.findGroup(color + "_lower").get(2).asInt(), 255, 255), lower_hue_range);
-    cv::inRange(hsv_image, cv::Scalar(hueBottle.findGroup(color + "_upper").get(1).asInt(), 100, 100), cv::Scalar(hueBottle.findGroup(color + "_upper").get(2).asInt(), 255, 255), upper_hue_range);
+    //printf("Color: %d\n", hueBottle.findGroup(color + "_lower").get(1).asInt());
+    cv::inRange(hsv_image, cv::Scalar(hueBottle.findGroup(color + "_lower").get(1).asInt(), 50,50), cv::Scalar(hueBottle.findGroup(color + "_lower").get(2).asInt(), 255, 255), lower_hue_range);
+    cv::inRange(hsv_image, cv::Scalar(hueBottle.findGroup(color + "_upper").get(1).asInt(), 50, 50), cv::Scalar(hueBottle.findGroup(color + "_upper").get(2).asInt(), 255, 255), upper_hue_range);
 
     // Combine the above two images
     cv::Mat hue_image;

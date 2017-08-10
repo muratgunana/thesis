@@ -14,16 +14,7 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/include/opencv"
-  "/home/mgunana/yarp/build/src/libYARP_conf/include"
-  "/home/mgunana/yarp/src/libYARP_OS/include"
-  "/home/mgunana/yarp/src/libYARP_sig/include"
-  "/home/mgunana/yarp/src/libYARP_eigen/include"
-  "/home/mgunana/yarp/src/libYARP_gsl/include"
-  "/home/mgunana/yarp/src/libYARP_math/include"
-  "/home/mgunana/yarp/src/libYARP_dev/include"
-  "/home/mgunana/yarp/src/libYARP_name/include"
-  "/home/mgunana/yarp/src/libYARP_manager/include"
-  "/home/mgunana/yarp/src/libYARP_logger/include"
+  "/usr/local/include"
   )
 
 # Targets to which this target links.
