@@ -1,3 +1,8 @@
+/**
+ * Copyright: (C) 2017 Robotics Lab - MAC Heriot-Watt University
+ * Author: Murat Gunana
+ */
+
 #include "MultiModalModule.h"
 #include <yarp/os/LogStream.h>
 #include <yarp/sig/ImageDraw.h>
@@ -33,7 +38,7 @@ double MultiModalModule::getPeriod() {
 bool MultiModalModule::updateModule() {    
   // After pointing an object assign it's color so we can spot its color.
   objectThread->setColorCode(collisionThread->getColorCode());
-  //printf("Color code: %d\n", objectThread->getColorCode());
+  
   return true;
 }
 

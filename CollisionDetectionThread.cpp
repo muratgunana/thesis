@@ -1,3 +1,8 @@
+/**
+ * Copyright: (C) 2017 Robotics Lab - MAC Heriot-Watt University
+ * Author: Murat Gunana
+ */
+
 #include "CollisionDetectionThread.h"
 #include <yarp/os/LogStream.h>
 #include <yarp/sig/Image.h>
@@ -6,14 +11,14 @@
 #define WRIST_JOINT 44
 #define ELBOW_JOINT 32
 
-#define GAZE_EVENT_PORT "/iKinGazeCtrl/events:o"
+#define GAZE_EVENT_PORT       "/iKinGazeCtrl/events:o"
 #define GAZE_EVENT_LOCAL_PORT "/gazeEventLocal"
-#define IKIN_GAZE_LOCAL_PORT "/iKinGazeLocal"
-#define IKIN_GAZE_PORT "/iKinGazeCtrl/xd:i"
-#define OPENNI_DATA_PORT "/OpenNI2/userSkeleton:o"
-#define SKELETON_DATA_PORT "/skeletonPort"
-#define MSPEAK_PORT "/MSpeak/text:i"
-#define SPEECH_PORT "/speechPort"
+#define IKIN_GAZE_LOCAL_PORT  "/iKinGazeLocal"
+#define IKIN_GAZE_PORT        "/iKinGazeCtrl/xd:i"
+#define OPENNI_DATA_PORT      "/OpenNI2/userSkeleton:o"
+#define SKELETON_DATA_PORT    "/skeletonPort"
+#define MSPEAK_PORT           "/MSpeak/text:i"
+#define SPEECH_PORT           "/speechPort"
 
 #define RED_COLOR    "red"
 #define GREEN_COLOR  "green"
@@ -84,7 +89,6 @@ void CollisionDetectionThread::collisionDetector() {
        
         yarp::sig::Vector elbow_ball_vector(3);
         elbow_ball_vector = ball_center - elbow_joint;
-        //printf("Elbow joint: %s\n", elbow_joint.toString().c_str());
         
         // We need to take dot product of hand_vector with elbow_ball_vector 
         // and this will give us the distance. If the result is less than zero then the hand vector
@@ -119,18 +123,12 @@ void CollisionDetectionThread::collisionDetector() {
             this->setColorCode(PURPLE);
           }
           
-          //this->igaze->lookAtFixationPoint((ball_center - eyeVector)/100.0f);// request to gaze at the desired fixation point and wait for reply (sync method)
-          //this->igaze->waitMotionDone();
-          printf("Color: %s\n", lst->get(0).asString().c_str());
           yarp::sig::Vector tempVector(3), gazeVector(3);
           tempVector = (ball_center - eyeVector) / 100.0f;
-          //printf("Temp vector: %s\n", tempVector.toString().c_str());
-          //printf("Eye vector: %s\n", eyeVector.toString().c_str());
           gazeVector[0] = -tempVector[2];
           gazeVector[1] = -tempVector[0];
           gazeVector[2] = tempVector[1];
           
-          printf("Gaze Bottle: %s\n", gazeVector.toString().c_str());
           Bottle& iKinGazeBottle = this->iKinGazePort.prepare();
           iKinGazeBottle.clear();
           iKinGazeBottle.read(gazeVector);
@@ -220,20 +218,6 @@ bool CollisionDetectionThread::threadInit() {
   
   this->setColorCode(COLOR_CODE_OFFSET);
 
-  // open a client interface to connect to the gaze server
-  // we suppose that:
-  // 1 - the iCub simulator is running;
-  // 2 - the gaze server iKinGazeCtrl is running and
-  //     launched with the following options: "--from configSim.ini"
-  //Property optGaze("(device gazecontrollerclient)");
-  //optGaze.put("remote","/iKinGazeCtrl/xd:i");
-  //optGaze.put("local","/gaze_client");
-
-  //if (!this->clientGaze.open(optGaze))
-    //return false;
-  // open the view
-  //this->clientGaze.view(this->igaze);
- 
   return true;
 }
  

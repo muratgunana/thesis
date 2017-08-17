@@ -1,3 +1,8 @@
+/**
+ * Copyright: (C) 2017 Robotics Lab - MAC Heriot-Watt University
+ * Author: Murat Gunana
+ */
+
 #include <string>
 #include <yarp/os/Thread.h>
 #include <yarp/os/Semaphore.h>

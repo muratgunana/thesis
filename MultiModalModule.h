@@ -1,3 +1,8 @@
+/**
+ * Copyright: (C) 2017 Robotics Lab - MAC Heriot-Watt University
+ * Author: Murat Gunana
+ */
+
 #include <yarp/dev/GazeControl.h>
 #include <yarp/dev/PolyDriver.h>
 #include <yarp/os/LogStream.h>

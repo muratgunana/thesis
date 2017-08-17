@@ -1,3 +1,8 @@
+/**
+ * Copyright: (C) 2017 Robotics Lab - MAC Heriot-Watt University
+ * Author: Murat Gunana
+ */
+
 #include <cv.h>
 #include <cvaux.h>
 #include <highgui.h>
@@ -14,12 +19,13 @@
 #include <yarp/os/Time.h>
 #include <yarp/os/Property.h>
 
-#define RED_COLOR "red"
-#define GREEN_COLOR "green"
+#define RED_COLOR    "red"
+#define GREEN_COLOR  "green"
 #define PURPLE_COLOR "purple"
-#define SENSOR_RGB_PORT "/OpenNI2/imageFrame:o"
+
+#define SENSOR_RGB_PORT    "/OpenNI2/imageFrame:o"
 #define ICUB_LEFT_EYE_PORT "/icub/cam/left"
-#define IMAGE_PORT "/imagergb"
+#define IMAGE_PORT         "/imagergb"
  
 using namespace yarp::sig;
 using namespace std;
@@ -125,8 +131,8 @@ void ObjectDetectionThread::objectDetection() {
     cv::imshow("Threshold upper image", upper_hue_range);
     cv::namedWindow("Combined threshold images", cv::WINDOW_AUTOSIZE);
     cv::imshow("Combined threshold images", hue_image);
-    cv::namedWindow("Detected red circles on the input image", cv::WINDOW_AUTOSIZE);
-    cv::imshow("Detected red circles on the input image", orig_image);
+    cv::namedWindow("Detected circles on the input image", cv::WINDOW_AUTOSIZE);
+    cv::imshow("Detected circles on the input image", orig_image);
   }
 }
 
